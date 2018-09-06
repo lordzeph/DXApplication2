@@ -1,0 +1,2607 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ContabilidadModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AirTicketsSet">
+          <Key>
+            <PropertyRef Name="AirTicketId" />
+          </Key>
+          <Property Name="AirTicketId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TicketName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+          <Property Name="PartnerServiceId" Type="int" Nullable="false" />
+          <Property Name="NetPrice" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Brutprice" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="OfferPrice" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="OfferSpan" Type="datetime" Nullable="false" />
+          <Property Name="OutDate" Type="datetime" Nullable="false" />
+          <Property Name="BrutPriceSpan" Type="datetime" Nullable="false" />
+          <Property Name="Code" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="DepartTime" Type="datetime" Nullable="false" />
+          <Property Name="ArriveTime" Type="datetime" Nullable="false" />
+          <Property Name="Route" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DepartPlace" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ArrivePlace" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ConfortClass" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Number" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Details" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Type" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BankAccountsSet">
+          <Key>
+            <PropertyRef Name="AcccountId" />
+          </Key>
+          <Property Name="AcccountId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AccountName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CompanyId" Type="int" Nullable="false" />
+          <Property Name="AccountNumber" Type="nvarchar(max)" />
+          <Property Name="AccountValue" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="CashOperationsSet">
+          <Key>
+            <PropertyRef Name="CashOPId" />
+          </Key>
+          <Property Name="CashOPId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CashOPDate" Type="smalldatetime" Nullable="false" />
+          <Property Name="Value" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Details" Type="nvarchar(max)" />
+          <Property Name="IsBank" Type="bit" Nullable="false" />
+          <Property Name="IsIncome" Type="bit" Nullable="false" />
+          <Property Name="CompanyId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="CashOPTypeId" Type="int" Nullable="false" />
+          <Property Name="AccountId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CashOperationsTypesSet">
+          <Key>
+            <PropertyRef Name="CashOpTypesId" />
+          </Key>
+          <Property Name="CashOpTypesId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CashOPTypeName" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ClientsServices">
+          <Key>
+            <PropertyRef Name="ClientsServicesId" />
+          </Key>
+          <Property Name="ClientsServicesId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Clientid" Type="int" Nullable="false" />
+          <Property Name="ServiceId" Type="int" Nullable="false" />
+          <Property Name="IsPayer" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ClientsSet">
+          <Key>
+            <PropertyRef Name="ClientId" />
+          </Key>
+          <Property Name="ClientId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IDNumber" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="BirthDate" Type="datetime" />
+          <Property Name="Gender" Type="bit" />
+          <Property Name="Phone" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="VisaLimit" Type="datetime" />
+          <Property Name="Adress" Type="nvarchar(max)" />
+          <Property Name="ExtPassportName" Type="nvarchar(max)" />
+          <Property Name="BirthPlace" Type="nvarchar(max)" />
+          <Property Name="ExtPassportNumber" Type="nvarchar(max)" />
+          <Property Name="ExtpassportExpDate" Type="datetime" />
+          <Property Name="Extra1" Type="nvarchar(max)" />
+          <Property Name="Extra2" Type="nvarchar(max)" />
+          <Property Name="Extra3" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Notes" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="Serial" Type="nvarchar(max)" />
+          <Property Name="Extra4" Type="datetime" />
+          <Property Name="HasEmail" Type="bit" />
+          <Property Name="CitizenShip" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="CoinExchangesSet">
+          <Key>
+            <PropertyRef Name="ExchangeId" />
+          </Key>
+          <Property Name="ExchangeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IntUSDChange" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ExtEURChange" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="AddedPercent" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="AddedValue" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CompaniesSet">
+          <Key>
+            <PropertyRef Name="CompanyId" />
+          </Key>
+          <Property Name="CompanyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="VisualProp" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="LogoAdress" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Color" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CompanyAdress" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CompanyCashOP">
+          <Key>
+            <PropertyRef Name="CashOPId" />
+          </Key>
+          <Property Name="CashOPId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CashOPDate" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Value" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Details" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CashValue" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="BankValue" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="debtsToPay" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DebtsToRecieve" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="InventValue" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CountriesSet">
+          <Key>
+            <PropertyRef Name="CountryId" />
+          </Key>
+          <Property Name="CountryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CountryName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CountryCode" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="EnglishName" Type="nvarchar(max)" />
+          <Property Name="SpanishName" Type="nvarchar(max)" />
+          <Property Name="RussianName" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="EalthServicesSet">
+          <Key>
+            <PropertyRef Name="EalthServiceId" />
+          </Key>
+          <Property Name="EalthServiceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EalthServiceName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CreationDate" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Partner" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Netprice" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="BrutPrice" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="OfferPrice" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="OfferpriceSpan" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="BrutOfferSpan" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Number" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CompanyId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ExpensesSet">
+          <Key>
+            <PropertyRef Name="ExpenseId" />
+          </Key>
+          <Property Name="PartnerServicesID" Type="int" Nullable="false" />
+          <Property Name="ExpenseId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FactDate" Type="datetime" Nullable="false" />
+          <Property Name="Value" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="CoinExange" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="BankPaid" Type="bit" Nullable="false" />
+          <Property Name="Details" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HotelsSet">
+          <Key>
+            <PropertyRef Name="HotelId" />
+          </Key>
+          <Property Name="HotelId" Type="int" Nullable="false" />
+          <Property Name="Hotelname" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+          <Property Name="ServicesPartnerId" Type="int" Nullable="false" />
+          <Property Name="Netprice" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="BrutPrice" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="OfferPrice" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="OfferStartdate" Type="datetime" />
+          <Property Name="OfferEndDate" Type="datetime" />
+          <Property Name="CountryId" Type="int" Nullable="false" />
+          <Property Name="City" Type="nvarchar(max)" />
+          <Property Name="Room" Type="nvarchar(max)" />
+          <Property Name="Food" Type="nvarchar(max)" />
+          <Property Name="CheckinDate" Type="datetime" />
+          <Property Name="CheckOutdate" Type="datetime" />
+          <Property Name="Nights" Type="int" />
+          <Property Name="HotelCat" Type="int" />
+          <Property Name="HotelCode" Type="nvarchar(max)" />
+          <Property Name="HotelDetails" Type="nvarchar(max)" />
+          <Property Name="Type" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="IncomesSet">
+          <Key>
+            <PropertyRef Name="IncomeId" />
+          </Key>
+          <Property Name="IncomeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ServiceId" Type="int" Nullable="false" />
+          <Property Name="FactDate" Type="datetime" Nullable="false" />
+          <Property Name="Value" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="CoinExchange" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="IsBankPaid" Type="bit" Nullable="false" />
+          <Property Name="Details" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="IncomeTableSet">
+          <Key>
+            <PropertyRef Name="IncomeTableId" />
+          </Key>
+          <Property Name="IncomeTableId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IncomeTableName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="User" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Service" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="GraphType" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Expense" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Date" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DocType" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ExpectedIncome" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="RealIncome" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Plannedincome" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CompaniesCompanyId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InventariosSet">
+          <Key>
+            <PropertyRef Name="ItemId" />
+          </Key>
+          <Property Name="ItemId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ItemName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ItemCode" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Price" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Amount" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="FabDate" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="EntryDate" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Brand" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PartnersServices">
+          <Key>
+            <PropertyRef Name="PartnersServicesID" />
+          </Key>
+          <Property Name="PartnersServicesID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PartnerId" Type="int" Nullable="false" />
+          <Property Name="ServiceId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PartnersSet">
+          <Key>
+            <PropertyRef Name="PartnerId" />
+          </Key>
+          <Property Name="PartnerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RealAdress" Type="nvarchar(max)" />
+          <Property Name="LawAdress" Type="nvarchar(max)" />
+          <Property Name="Phone" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="FinacialValue" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="RegNumber" Type="nvarchar(max)" />
+          <Property Name="Nombramiento" Type="nvarchar(max)" />
+          <Property Name="ContractDate" Type="datetime" />
+          <Property Name="PartnerName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="FundingTimeLimit" Type="datetime" />
+          <Property Name="OrganizationLocation" Type="nvarchar(max)" />
+          <Property Name="OrganizationPostalCode" Type="nvarchar(max)" />
+          <Property Name="ContractNumber" Type="nvarchar(max)" />
+          <Property Name="Extra1" Type="nvarchar(max)" />
+          <Property Name="Extra2" Type="nvarchar(max)" />
+          <Property Name="Extra3" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Extra4" Type="datetime" />
+          <Property Name="NickName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Isprovider" Type="bit" />
+          <Property Name="Iscreditor" Type="bit" />
+          <Property Name="Notes" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Permisions">
+          <Key>
+            <PropertyRef Name="UserPermissionsID" />
+          </Key>
+          <Property Name="UserPermissionsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="PermissionsTypeID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PermissionsTypes">
+          <Key>
+            <PropertyRef Name="PermissionsTypesID" />
+          </Key>
+          <Property Name="PermissionsTypesID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IsUserID" Type="bit" Nullable="false" />
+          <Property Name="PermissionTypeName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PermisionValue" Type="int" />
+        </EntityType>
+        <EntityType Name="ProductosSet">
+          <Key>
+            <PropertyRef Name="ProductoId" />
+          </Key>
+          <Property Name="ProductoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductoName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PriceinRub" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="USDprice" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="EURPrice" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="EntryDate" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PriceSpan" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="priceSpanOffer" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IsIndividual" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ProductTime" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Place" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Details" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PropertiesSet">
+          <Key>
+            <PropertyRef Name="PropertyId" />
+          </Key>
+          <Property Name="PropertyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PropertyName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PropertyType" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Code" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Value" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Details" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="User" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Company" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ServicesSet">
+          <Key>
+            <PropertyRef Name="ServiceId" />
+          </Key>
+          <Property Name="ServiceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Servicename" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="SeviceTypeID" Type="int" Nullable="false" />
+          <Property Name="CompanyID" Type="int" Nullable="false" />
+          <Property Name="NetPrice" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="PrecioBruto" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+          <Property Name="Specs" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Comission" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="FromDate" Type="datetime" Nullable="false" />
+          <Property Name="ToDate" Type="datetime" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="CountryId" Type="int" />
+        </EntityType>
+        <EntityType Name="ServiceTypes">
+          <Key>
+            <PropertyRef Name="ServiceTypeID" />
+          </Key>
+          <Property Name="ServiceTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ServiceType" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="ToursSet">
+          <Key>
+            <PropertyRef Name="TourId" />
+          </Key>
+          <Property Name="TourId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TourName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+          <Property Name="PartnersServiceId" Type="int" Nullable="false" />
+          <Property Name="NetPrice" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Brutprice" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="OfferPrice" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="OfferSpan" Type="datetime" />
+          <Property Name="OutDate" Type="datetime" />
+          <Property Name="BrutPriceSpan" Type="datetime" />
+          <Property Name="Code" Type="nvarchar(max)" />
+          <Property Name="DepartTime" Type="datetime" />
+          <Property Name="ArriveTime" Type="datetime" />
+          <Property Name="Route" Type="nvarchar(max)" />
+          <Property Name="DepartPlace" Type="nvarchar(max)" />
+          <Property Name="ArrivePlace" Type="nvarchar(max)" />
+          <Property Name="ConfortClass" Type="nvarchar(max)" />
+          <Property Name="Number" Type="nvarchar(max)" />
+          <Property Name="Details" Type="nvarchar(max)" />
+          <Property Name="Type" Type="nvarchar(max)" />
+          <Property Name="Isguided" Type="bit" />
+          <Property Name="Transport1" Type="nvarchar(max)" />
+          <Property Name="Transport2" Type="nvarchar(max)" />
+          <Property Name="TouristCount" Type="int" />
+        </EntityType>
+        <EntityType Name="TrainTicketsSet">
+          <Key>
+            <PropertyRef Name="TrainTicketId" />
+          </Key>
+          <Property Name="TrainTicketId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+          <Property Name="NetPrice" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Brutprice" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="OfferPrice" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="OfferSpan" Type="datetime" />
+          <Property Name="OutDate" Type="datetime" />
+          <Property Name="BrutPriceSpan" Type="datetime" />
+          <Property Name="Code" Type="nvarchar(max)" />
+          <Property Name="DepartTime" Type="datetime" />
+          <Property Name="ArriveTime" Type="datetime" />
+          <Property Name="Route" Type="nvarchar(max)" />
+          <Property Name="DepartPlace" Type="nvarchar(max)" />
+          <Property Name="ArrivePlace" Type="nvarchar(max)" />
+          <Property Name="ConfortClass" Type="nvarchar(max)" />
+          <Property Name="Number" Type="nvarchar(max)" />
+          <Property Name="Details" Type="nvarchar(max)" />
+          <Property Name="Type" Type="nvarchar(max)" />
+          <Property Name="PartnerServiceId" Type="int" Nullable="false" />
+          <Property Name="TouristCount" Type="int" />
+        </EntityType>
+        <EntityType Name="TransferSet">
+          <Key>
+            <PropertyRef Name="TransferId" />
+          </Key>
+          <Property Name="TransferId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TransferName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+          <Property Name="NetPrice" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Brutprice" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="OfferPrice" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="OfferSpan" Type="datetime" />
+          <Property Name="OutDate" Type="datetime" />
+          <Property Name="BrutPriceSpan" Type="datetime" />
+          <Property Name="Code" Type="nvarchar(max)" />
+          <Property Name="DepartTime" Type="datetime" />
+          <Property Name="ArriveTime" Type="datetime" />
+          <Property Name="Route" Type="nvarchar(max)" />
+          <Property Name="DepartPlace" Type="nvarchar(max)" />
+          <Property Name="ArrivePlace" Type="nvarchar(max)" />
+          <Property Name="ConfortClass" Type="nvarchar(max)" />
+          <Property Name="Number" Type="nvarchar(max)" />
+          <Property Name="Details" Type="nvarchar(max)" />
+          <Property Name="Type" Type="nvarchar(max)" />
+          <Property Name="PartnerServiceId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserButtonsSet">
+          <Key>
+            <PropertyRef Name="ButtonsId" />
+          </Key>
+          <Property Name="ButtonsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="UsertypeID" Type="int" Nullable="false" />
+          <Property Name="IconId" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserCompanies">
+          <Key>
+            <PropertyRef Name="UserCompanyID" />
+          </Key>
+          <Property Name="UserCompanyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompaniID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Notes" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="UserTypeID" Type="int" Nullable="false" />
+          <Property Name="Login" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Password" Type="binary" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ActiveUser" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserType">
+          <Key>
+            <PropertyRef Name="UserTypeID" />
+          </Key>
+          <Property Name="UserTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserTypeName" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_AirTicketsSet_PartnersServices">
+          <End Role="PartnersServices" Type="Self.PartnersServices" Multiplicity="1" />
+          <End Role="AirTicketsSet" Type="Self.AirTicketsSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PartnersServices">
+              <PropertyRef Name="PartnersServicesID" />
+            </Principal>
+            <Dependent Role="AirTicketsSet">
+              <PropertyRef Name="PartnerServiceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BankAccountsSet_CompaniesSet">
+          <End Role="CompaniesSet" Type="Self.CompaniesSet" Multiplicity="1" />
+          <End Role="BankAccountsSet" Type="Self.BankAccountsSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompaniesSet">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="BankAccountsSet">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CashOperations_CompaniesSet">
+          <End Role="CompaniesSet" Type="Self.CompaniesSet" Multiplicity="1" />
+          <End Role="CashOperationsSet" Type="Self.CashOperationsSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompaniesSet">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="CashOperationsSet">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CashOperationsSet_BankAccountsSet">
+          <End Role="BankAccountsSet" Type="Self.BankAccountsSet" Multiplicity="1" />
+          <End Role="CashOperationsSet" Type="Self.CashOperationsSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BankAccountsSet">
+              <PropertyRef Name="AcccountId" />
+            </Principal>
+            <Dependent Role="CashOperationsSet">
+              <PropertyRef Name="AccountId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CashOperationsSet_CashOperationsTypesSet">
+          <End Role="CashOperationsTypesSet" Type="Self.CashOperationsTypesSet" Multiplicity="1" />
+          <End Role="CashOperationsSet" Type="Self.CashOperationsSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CashOperationsTypesSet">
+              <PropertyRef Name="CashOpTypesId" />
+            </Principal>
+            <Dependent Role="CashOperationsSet">
+              <PropertyRef Name="CashOPTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CashOperationsSet_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="CashOperationsSet" Type="Self.CashOperationsSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="CashOperationsSet">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientsServises_ClientsSet">
+          <End Role="ClientsSet" Type="Self.ClientsSet" Multiplicity="1" />
+          <End Role="ClientsServices" Type="Self.ClientsServices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClientsSet">
+              <PropertyRef Name="ClientId" />
+            </Principal>
+            <Dependent Role="ClientsServices">
+              <PropertyRef Name="Clientid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientsServises_ServicesSet">
+          <End Role="ServicesSet" Type="Self.ServicesSet" Multiplicity="1" />
+          <End Role="ClientsServices" Type="Self.ClientsServices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServicesSet">
+              <PropertyRef Name="ServiceId" />
+            </Principal>
+            <Dependent Role="ClientsServices">
+              <PropertyRef Name="ServiceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompaniesEalthServices">
+          <End Role="CompaniesSet" Type="Self.CompaniesSet" Multiplicity="1" />
+          <End Role="EalthServicesSet" Type="Self.EalthServicesSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompaniesSet">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="EalthServicesSet">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompaniesIncomeTable">
+          <End Role="CompaniesSet" Type="Self.CompaniesSet" Multiplicity="1" />
+          <End Role="IncomeTableSet" Type="Self.IncomeTableSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompaniesSet">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="IncomeTableSet">
+              <PropertyRef Name="CompaniesCompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompanyCashOP_CompanyCashOP">
+          <End Role="CompanyCashOP" Type="Self.CompanyCashOP" Multiplicity="1" />
+          <End Role="CompanyCashOP1" Type="Self.CompanyCashOP" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="CompanyCashOP">
+              <PropertyRef Name="CashOPId" />
+            </Principal>
+            <Dependent Role="CompanyCashOP1">
+              <PropertyRef Name="CashOPId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExpensesSet_PartnersServices">
+          <End Role="PartnersServices" Type="Self.PartnersServices" Multiplicity="1" />
+          <End Role="ExpensesSet" Type="Self.ExpensesSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PartnersServices">
+              <PropertyRef Name="PartnersServicesID" />
+            </Principal>
+            <Dependent Role="ExpensesSet">
+              <PropertyRef Name="PartnerServicesID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExpensesSet_ServicesSet">
+          <End Role="ServicesSet" Type="Self.ServicesSet" Multiplicity="1" />
+          <End Role="ExpensesSet" Type="Self.ExpensesSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServicesSet">
+              <PropertyRef Name="ServiceId" />
+            </Principal>
+            <Dependent Role="ExpensesSet">
+              <PropertyRef Name="PartnerServicesID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HotelsSet_CountriesSet">
+          <End Role="CountriesSet" Type="Self.CountriesSet" Multiplicity="1" />
+          <End Role="HotelsSet" Type="Self.HotelsSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CountriesSet">
+              <PropertyRef Name="CountryId" />
+            </Principal>
+            <Dependent Role="HotelsSet">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HotelsSet_PartnersServices">
+          <End Role="PartnersServices" Type="Self.PartnersServices" Multiplicity="1" />
+          <End Role="HotelsSet" Type="Self.HotelsSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PartnersServices">
+              <PropertyRef Name="PartnersServicesID" />
+            </Principal>
+            <Dependent Role="HotelsSet">
+              <PropertyRef Name="ServicesPartnerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IncomesSet_ServicesSet">
+          <End Role="ServicesSet" Type="Self.ServicesSet" Multiplicity="1" />
+          <End Role="IncomesSet" Type="Self.IncomesSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServicesSet">
+              <PropertyRef Name="ServiceId" />
+            </Principal>
+            <Dependent Role="IncomesSet">
+              <PropertyRef Name="ServiceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PartnersServices_PartnersSet">
+          <End Role="PartnersSet" Type="Self.PartnersSet" Multiplicity="1" />
+          <End Role="PartnersServices" Type="Self.PartnersServices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PartnersSet">
+              <PropertyRef Name="PartnerId" />
+            </Principal>
+            <Dependent Role="PartnersServices">
+              <PropertyRef Name="PartnerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PartnersServices_ServicesSet">
+          <End Role="ServicesSet" Type="Self.ServicesSet" Multiplicity="1" />
+          <End Role="PartnersServices" Type="Self.PartnersServices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServicesSet">
+              <PropertyRef Name="ServiceId" />
+            </Principal>
+            <Dependent Role="PartnersServices">
+              <PropertyRef Name="ServiceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Permisions_PermissionsTypes">
+          <End Role="PermissionsTypes" Type="Self.PermissionsTypes" Multiplicity="1" />
+          <End Role="Permisions" Type="Self.Permisions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PermissionsTypes">
+              <PropertyRef Name="PermissionsTypesID" />
+            </Principal>
+            <Dependent Role="Permisions">
+              <PropertyRef Name="PermissionsTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Permisions_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Permisions" Type="Self.Permisions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Permisions">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServicesSet_CompaniesSet">
+          <End Role="CompaniesSet" Type="Self.CompaniesSet" Multiplicity="1" />
+          <End Role="ServicesSet" Type="Self.ServicesSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompaniesSet">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="ServicesSet">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServicesSet_CountriesSet">
+          <End Role="CountriesSet" Type="Self.CountriesSet" Multiplicity="0..1" />
+          <End Role="ServicesSet" Type="Self.ServicesSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CountriesSet">
+              <PropertyRef Name="CountryId" />
+            </Principal>
+            <Dependent Role="ServicesSet">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServicesSet_ServiceTypes1">
+          <End Role="ServiceTypes" Type="Self.ServiceTypes" Multiplicity="1" />
+          <End Role="ServicesSet" Type="Self.ServicesSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServiceTypes">
+              <PropertyRef Name="ServiceTypeID" />
+            </Principal>
+            <Dependent Role="ServicesSet">
+              <PropertyRef Name="SeviceTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServicesSet_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="ServicesSet" Type="Self.ServicesSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="ServicesSet">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ToursSet_PartnersServices">
+          <End Role="PartnersServices" Type="Self.PartnersServices" Multiplicity="1" />
+          <End Role="ToursSet" Type="Self.ToursSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PartnersServices">
+              <PropertyRef Name="PartnersServicesID" />
+            </Principal>
+            <Dependent Role="ToursSet">
+              <PropertyRef Name="PartnersServiceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TrainTicketsSet_PartnersServices">
+          <End Role="PartnersServices" Type="Self.PartnersServices" Multiplicity="1" />
+          <End Role="TrainTicketsSet" Type="Self.TrainTicketsSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PartnersServices">
+              <PropertyRef Name="PartnersServicesID" />
+            </Principal>
+            <Dependent Role="TrainTicketsSet">
+              <PropertyRef Name="PartnerServiceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransferSet_PartnersServices">
+          <End Role="PartnersServices" Type="Self.PartnersServices" Multiplicity="1" />
+          <End Role="TransferSet" Type="Self.TransferSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PartnersServices">
+              <PropertyRef Name="PartnersServicesID" />
+            </Principal>
+            <Dependent Role="TransferSet">
+              <PropertyRef Name="PartnerServiceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserButtonsSet_UserType">
+          <End Role="UserType" Type="Self.UserType" Multiplicity="1" />
+          <End Role="UserButtonsSet" Type="Self.UserButtonsSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserType">
+              <PropertyRef Name="UserTypeID" />
+            </Principal>
+            <Dependent Role="UserButtonsSet">
+              <PropertyRef Name="UsertypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserCompanies_CompaniesSet">
+          <End Role="CompaniesSet" Type="Self.CompaniesSet" Multiplicity="1" />
+          <End Role="UserCompanies" Type="Self.UserCompanies" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompaniesSet">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="UserCompanies">
+              <PropertyRef Name="CompaniID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserCompanies_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="UserCompanies" Type="Self.UserCompanies" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="UserCompanies">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_UserType">
+          <End Role="UserType" Type="Self.UserType" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserType">
+              <PropertyRef Name="UserTypeID" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="UserTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ContabilidadModelStoreContainer">
+          <EntitySet Name="AirTicketsSet" EntityType="Self.AirTicketsSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BankAccountsSet" EntityType="Self.BankAccountsSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CashOperationsSet" EntityType="Self.CashOperationsSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CashOperationsTypesSet" EntityType="Self.CashOperationsTypesSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClientsServices" EntityType="Self.ClientsServices" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClientsSet" EntityType="Self.ClientsSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CoinExchangesSet" EntityType="Self.CoinExchangesSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CompaniesSet" EntityType="Self.CompaniesSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CompanyCashOP" EntityType="Self.CompanyCashOP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CountriesSet" EntityType="Self.CountriesSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EalthServicesSet" EntityType="Self.EalthServicesSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ExpensesSet" EntityType="Self.ExpensesSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HotelsSet" EntityType="Self.HotelsSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IncomesSet" EntityType="Self.IncomesSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IncomeTableSet" EntityType="Self.IncomeTableSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InventariosSet" EntityType="Self.InventariosSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PartnersServices" EntityType="Self.PartnersServices" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PartnersSet" EntityType="Self.PartnersSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Permisions" EntityType="Self.Permisions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PermissionsTypes" EntityType="Self.PermissionsTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductosSet" EntityType="Self.ProductosSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PropertiesSet" EntityType="Self.PropertiesSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ServicesSet" EntityType="Self.ServicesSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ServiceTypes" EntityType="Self.ServiceTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ToursSet" EntityType="Self.ToursSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TrainTicketsSet" EntityType="Self.TrainTicketsSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TransferSet" EntityType="Self.TransferSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserButtonsSet" EntityType="Self.UserButtonsSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserCompanies" EntityType="Self.UserCompanies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserType" EntityType="Self.UserType" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AirTicketsSet_PartnersServices" Association="Self.FK_AirTicketsSet_PartnersServices">
+            <End Role="PartnersServices" EntitySet="PartnersServices" />
+            <End Role="AirTicketsSet" EntitySet="AirTicketsSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BankAccountsSet_CompaniesSet" Association="Self.FK_BankAccountsSet_CompaniesSet">
+            <End Role="CompaniesSet" EntitySet="CompaniesSet" />
+            <End Role="BankAccountsSet" EntitySet="BankAccountsSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CashOperations_CompaniesSet" Association="Self.FK_CashOperations_CompaniesSet">
+            <End Role="CompaniesSet" EntitySet="CompaniesSet" />
+            <End Role="CashOperationsSet" EntitySet="CashOperationsSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CashOperationsSet_BankAccountsSet" Association="Self.FK_CashOperationsSet_BankAccountsSet">
+            <End Role="BankAccountsSet" EntitySet="BankAccountsSet" />
+            <End Role="CashOperationsSet" EntitySet="CashOperationsSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CashOperationsSet_CashOperationsTypesSet" Association="Self.FK_CashOperationsSet_CashOperationsTypesSet">
+            <End Role="CashOperationsTypesSet" EntitySet="CashOperationsTypesSet" />
+            <End Role="CashOperationsSet" EntitySet="CashOperationsSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CashOperationsSet_Users" Association="Self.FK_CashOperationsSet_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="CashOperationsSet" EntitySet="CashOperationsSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientsServises_ClientsSet" Association="Self.FK_ClientsServises_ClientsSet">
+            <End Role="ClientsSet" EntitySet="ClientsSet" />
+            <End Role="ClientsServices" EntitySet="ClientsServices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientsServises_ServicesSet" Association="Self.FK_ClientsServises_ServicesSet">
+            <End Role="ServicesSet" EntitySet="ServicesSet" />
+            <End Role="ClientsServices" EntitySet="ClientsServices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompaniesEalthServices" Association="Self.FK_CompaniesEalthServices">
+            <End Role="CompaniesSet" EntitySet="CompaniesSet" />
+            <End Role="EalthServicesSet" EntitySet="EalthServicesSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompaniesIncomeTable" Association="Self.FK_CompaniesIncomeTable">
+            <End Role="CompaniesSet" EntitySet="CompaniesSet" />
+            <End Role="IncomeTableSet" EntitySet="IncomeTableSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompanyCashOP_CompanyCashOP" Association="Self.FK_CompanyCashOP_CompanyCashOP">
+            <End Role="CompanyCashOP" EntitySet="CompanyCashOP" />
+            <End Role="CompanyCashOP1" EntitySet="CompanyCashOP" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExpensesSet_PartnersServices" Association="Self.FK_ExpensesSet_PartnersServices">
+            <End Role="PartnersServices" EntitySet="PartnersServices" />
+            <End Role="ExpensesSet" EntitySet="ExpensesSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExpensesSet_ServicesSet" Association="Self.FK_ExpensesSet_ServicesSet">
+            <End Role="ServicesSet" EntitySet="ServicesSet" />
+            <End Role="ExpensesSet" EntitySet="ExpensesSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HotelsSet_CountriesSet" Association="Self.FK_HotelsSet_CountriesSet">
+            <End Role="CountriesSet" EntitySet="CountriesSet" />
+            <End Role="HotelsSet" EntitySet="HotelsSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HotelsSet_PartnersServices" Association="Self.FK_HotelsSet_PartnersServices">
+            <End Role="PartnersServices" EntitySet="PartnersServices" />
+            <End Role="HotelsSet" EntitySet="HotelsSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IncomesSet_ServicesSet" Association="Self.FK_IncomesSet_ServicesSet">
+            <End Role="ServicesSet" EntitySet="ServicesSet" />
+            <End Role="IncomesSet" EntitySet="IncomesSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PartnersServices_PartnersSet" Association="Self.FK_PartnersServices_PartnersSet">
+            <End Role="PartnersSet" EntitySet="PartnersSet" />
+            <End Role="PartnersServices" EntitySet="PartnersServices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PartnersServices_ServicesSet" Association="Self.FK_PartnersServices_ServicesSet">
+            <End Role="ServicesSet" EntitySet="ServicesSet" />
+            <End Role="PartnersServices" EntitySet="PartnersServices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Permisions_PermissionsTypes" Association="Self.FK_Permisions_PermissionsTypes">
+            <End Role="PermissionsTypes" EntitySet="PermissionsTypes" />
+            <End Role="Permisions" EntitySet="Permisions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Permisions_Users" Association="Self.FK_Permisions_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Permisions" EntitySet="Permisions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServicesSet_CompaniesSet" Association="Self.FK_ServicesSet_CompaniesSet">
+            <End Role="CompaniesSet" EntitySet="CompaniesSet" />
+            <End Role="ServicesSet" EntitySet="ServicesSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServicesSet_CountriesSet" Association="Self.FK_ServicesSet_CountriesSet">
+            <End Role="CountriesSet" EntitySet="CountriesSet" />
+            <End Role="ServicesSet" EntitySet="ServicesSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServicesSet_ServiceTypes1" Association="Self.FK_ServicesSet_ServiceTypes1">
+            <End Role="ServiceTypes" EntitySet="ServiceTypes" />
+            <End Role="ServicesSet" EntitySet="ServicesSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServicesSet_Users" Association="Self.FK_ServicesSet_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="ServicesSet" EntitySet="ServicesSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ToursSet_PartnersServices" Association="Self.FK_ToursSet_PartnersServices">
+            <End Role="PartnersServices" EntitySet="PartnersServices" />
+            <End Role="ToursSet" EntitySet="ToursSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TrainTicketsSet_PartnersServices" Association="Self.FK_TrainTicketsSet_PartnersServices">
+            <End Role="PartnersServices" EntitySet="PartnersServices" />
+            <End Role="TrainTicketsSet" EntitySet="TrainTicketsSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransferSet_PartnersServices" Association="Self.FK_TransferSet_PartnersServices">
+            <End Role="PartnersServices" EntitySet="PartnersServices" />
+            <End Role="TransferSet" EntitySet="TransferSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserButtonsSet_UserType" Association="Self.FK_UserButtonsSet_UserType">
+            <End Role="UserType" EntitySet="UserType" />
+            <End Role="UserButtonsSet" EntitySet="UserButtonsSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserCompanies_CompaniesSet" Association="Self.FK_UserCompanies_CompaniesSet">
+            <End Role="CompaniesSet" EntitySet="CompaniesSet" />
+            <End Role="UserCompanies" EntitySet="UserCompanies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserCompanies_Users" Association="Self.FK_UserCompanies_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserCompanies" EntitySet="UserCompanies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_UserType" Association="Self.FK_Users_UserType">
+            <End Role="UserType" EntitySet="UserType" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ContabilidadModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ContabilidadEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AirTicketsSet" EntityType="ContabilidadModel.AirTicketsSet" />
+          <EntitySet Name="ClientsServices" EntityType="ContabilidadModel.ClientsServices" />
+          <EntitySet Name="CoinExchangesSet" EntityType="ContabilidadModel.CoinExchangesSet" />
+          <EntitySet Name="CompaniesSet" EntityType="ContabilidadModel.CompaniesSet" />
+          <EntitySet Name="CountriesSet" EntityType="ContabilidadModel.CountriesSet" />
+          <EntitySet Name="EalthServicesSet" EntityType="ContabilidadModel.EalthServicesSet" />
+          <EntitySet Name="ExpensesSet" EntityType="ContabilidadModel.ExpensesSet" />
+          <EntitySet Name="HotelsSet" EntityType="ContabilidadModel.HotelsSet" />
+          <EntitySet Name="IncomesSet" EntityType="ContabilidadModel.IncomesSet" />
+          <EntitySet Name="IncomeTableSet" EntityType="ContabilidadModel.IncomeTableSet" />
+          <EntitySet Name="InventariosSet" EntityType="ContabilidadModel.InventariosSet" />
+          <EntitySet Name="PartnersServices" EntityType="ContabilidadModel.PartnersServices" />
+          <EntitySet Name="PartnersSet" EntityType="ContabilidadModel.PartnersSet" />
+          <EntitySet Name="Permisions" EntityType="ContabilidadModel.Permisions" />
+          <EntitySet Name="PermissionsTypes" EntityType="ContabilidadModel.PermissionsTypes" />
+          <EntitySet Name="ProductosSet" EntityType="ContabilidadModel.ProductosSet" />
+          <EntitySet Name="PropertiesSet" EntityType="ContabilidadModel.PropertiesSet" />
+          <EntitySet Name="ServicesSet" EntityType="ContabilidadModel.ServicesSet" />
+          <EntitySet Name="ServiceTypes" EntityType="ContabilidadModel.ServiceTypes" />
+          <EntitySet Name="sysdiagrams" EntityType="ContabilidadModel.sysdiagrams" />
+          <EntitySet Name="ToursSet" EntityType="ContabilidadModel.ToursSet" />
+          <EntitySet Name="TrainTicketsSet" EntityType="ContabilidadModel.TrainTicketsSet" />
+          <EntitySet Name="TransferSet" EntityType="ContabilidadModel.TransferSet" />
+          <EntitySet Name="UserButtonsSet" EntityType="ContabilidadModel.UserButtonsSet" />
+          <EntitySet Name="UserCompanies" EntityType="ContabilidadModel.UserCompanies" />
+          <EntitySet Name="Users" EntityType="ContabilidadModel.Users" />
+          <EntitySet Name="UserType" EntityType="ContabilidadModel.UserType" />
+          <AssociationSet Name="FK_AirTicketsSet_PartnersServices" Association="ContabilidadModel.FK_AirTicketsSet_PartnersServices">
+            <End Role="PartnersServices" EntitySet="PartnersServices" />
+            <End Role="AirTicketsSet" EntitySet="AirTicketsSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientsServises_ServicesSet" Association="ContabilidadModel.FK_ClientsServises_ServicesSet">
+            <End Role="ServicesSet" EntitySet="ServicesSet" />
+            <End Role="ClientsServices" EntitySet="ClientsServices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompaniesEalthServices" Association="ContabilidadModel.FK_CompaniesEalthServices">
+            <End Role="CompaniesSet" EntitySet="CompaniesSet" />
+            <End Role="EalthServicesSet" EntitySet="EalthServicesSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompaniesIncomeTable" Association="ContabilidadModel.FK_CompaniesIncomeTable">
+            <End Role="CompaniesSet" EntitySet="CompaniesSet" />
+            <End Role="IncomeTableSet" EntitySet="IncomeTableSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServicesSet_CompaniesSet" Association="ContabilidadModel.FK_ServicesSet_CompaniesSet">
+            <End Role="CompaniesSet" EntitySet="CompaniesSet" />
+            <End Role="ServicesSet" EntitySet="ServicesSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserCompanies_CompaniesSet" Association="ContabilidadModel.FK_UserCompanies_CompaniesSet">
+            <End Role="CompaniesSet" EntitySet="CompaniesSet" />
+            <End Role="UserCompanies" EntitySet="UserCompanies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HotelsSet_CountriesSet" Association="ContabilidadModel.FK_HotelsSet_CountriesSet">
+            <End Role="CountriesSet" EntitySet="CountriesSet" />
+            <End Role="HotelsSet" EntitySet="HotelsSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServicesSet_CountriesSet" Association="ContabilidadModel.FK_ServicesSet_CountriesSet">
+            <End Role="CountriesSet" EntitySet="CountriesSet" />
+            <End Role="ServicesSet" EntitySet="ServicesSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExpensesSet_PartnersServices" Association="ContabilidadModel.FK_ExpensesSet_PartnersServices">
+            <End Role="PartnersServices" EntitySet="PartnersServices" />
+            <End Role="ExpensesSet" EntitySet="ExpensesSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExpensesSet_ServicesSet" Association="ContabilidadModel.FK_ExpensesSet_ServicesSet">
+            <End Role="ServicesSet" EntitySet="ServicesSet" />
+            <End Role="ExpensesSet" EntitySet="ExpensesSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HotelsSet_PartnersServices" Association="ContabilidadModel.FK_HotelsSet_PartnersServices">
+            <End Role="PartnersServices" EntitySet="PartnersServices" />
+            <End Role="HotelsSet" EntitySet="HotelsSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IncomesSet_ServicesSet" Association="ContabilidadModel.FK_IncomesSet_ServicesSet">
+            <End Role="ServicesSet" EntitySet="ServicesSet" />
+            <End Role="IncomesSet" EntitySet="IncomesSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PartnersServices_PartnersSet" Association="ContabilidadModel.FK_PartnersServices_PartnersSet">
+            <End Role="PartnersSet" EntitySet="PartnersSet" />
+            <End Role="PartnersServices" EntitySet="PartnersServices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PartnersServices_ServicesSet" Association="ContabilidadModel.FK_PartnersServices_ServicesSet">
+            <End Role="ServicesSet" EntitySet="ServicesSet" />
+            <End Role="PartnersServices" EntitySet="PartnersServices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ToursSet_PartnersServices" Association="ContabilidadModel.FK_ToursSet_PartnersServices">
+            <End Role="PartnersServices" EntitySet="PartnersServices" />
+            <End Role="ToursSet" EntitySet="ToursSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TrainTicketsSet_PartnersServices" Association="ContabilidadModel.FK_TrainTicketsSet_PartnersServices">
+            <End Role="PartnersServices" EntitySet="PartnersServices" />
+            <End Role="TrainTicketsSet" EntitySet="TrainTicketsSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransferSet_PartnersServices" Association="ContabilidadModel.FK_TransferSet_PartnersServices">
+            <End Role="PartnersServices" EntitySet="PartnersServices" />
+            <End Role="TransferSet" EntitySet="TransferSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Permisions_PermissionsTypes" Association="ContabilidadModel.FK_Permisions_PermissionsTypes">
+            <End Role="PermissionsTypes" EntitySet="PermissionsTypes" />
+            <End Role="Permisions" EntitySet="Permisions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Permisions_Users" Association="ContabilidadModel.FK_Permisions_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Permisions" EntitySet="Permisions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServicesSet_ServiceTypes1" Association="ContabilidadModel.FK_ServicesSet_ServiceTypes1">
+            <End Role="ServiceTypes" EntitySet="ServiceTypes" />
+            <End Role="ServicesSet" EntitySet="ServicesSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServicesSet_Users" Association="ContabilidadModel.FK_ServicesSet_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="ServicesSet" EntitySet="ServicesSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserButtonsSet_UserType" Association="ContabilidadModel.FK_UserButtonsSet_UserType">
+            <End Role="UserType" EntitySet="UserType" />
+            <End Role="UserButtonsSet" EntitySet="UserButtonsSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserCompanies_Users" Association="ContabilidadModel.FK_UserCompanies_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserCompanies" EntitySet="UserCompanies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_UserType" Association="ContabilidadModel.FK_Users_UserType">
+            <End Role="UserType" EntitySet="UserType" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <EntitySet Name="ClientsSet" EntityType="ContabilidadModel.ClientsSet" />
+          <AssociationSet Name="FK_ClientsServises_ClientsSet" Association="ContabilidadModel.FK_ClientsServises_ClientsSet">
+            <End Role="ClientsSet" EntitySet="ClientsSet" />
+            <End Role="ClientsServices" EntitySet="ClientsServices" />
+          </AssociationSet>
+          <EntitySet Name="CashOperationsTypesSet" EntityType="ContabilidadModel.CashOperationsTypesSet" />
+          <EntitySet Name="CashOperationsSet" EntityType="ContabilidadModel.CashOperationsSet" />
+          <EntitySet Name="CompanyCashOP" EntityType="ContabilidadModel.CompanyCashOP" />
+          <AssociationSet Name="FK_CashOperations_CompaniesSet" Association="ContabilidadModel.FK_CashOperations_CompaniesSet">
+            <End Role="CompaniesSet" EntitySet="CompaniesSet" />
+            <End Role="CashOperationsSet" EntitySet="CashOperationsSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CashOperationsSet_CashOperationsTypesSet" Association="ContabilidadModel.FK_CashOperationsSet_CashOperationsTypesSet">
+            <End Role="CashOperationsTypesSet" EntitySet="CashOperationsTypesSet" />
+            <End Role="CashOperationsSet" EntitySet="CashOperationsSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CashOperationsSet_Users" Association="ContabilidadModel.FK_CashOperationsSet_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="CashOperationsSet" EntitySet="CashOperationsSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompanyCashOP_CompanyCashOP" Association="ContabilidadModel.FK_CompanyCashOP_CompanyCashOP">
+            <End Role="CompanyCashOP" EntitySet="CompanyCashOP" />
+            <End Role="CompanyCashOP1" EntitySet="CompanyCashOP" />
+          </AssociationSet>
+          <EntitySet Name="BankAccountsSet" EntityType="ContabilidadModel.BankAccountsSet" />
+          <AssociationSet Name="FK_BankAccountsSet_CompaniesSet" Association="ContabilidadModel.FK_BankAccountsSet_CompaniesSet">
+            <End Role="CompaniesSet" EntitySet="CompaniesSet" />
+            <End Role="BankAccountsSet" EntitySet="BankAccountsSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CashOperationsSet_BankAccountsSet" Association="ContabilidadModel.FK_CashOperationsSet_BankAccountsSet">
+            <End Role="BankAccountsSet" EntitySet="BankAccountsSet" />
+            <End Role="CashOperationsSet" EntitySet="CashOperationsSet" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="AirTicketsSet">
+          <Key>
+            <PropertyRef Name="AirTicketId" />
+          </Key>
+          <Property Name="AirTicketId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TicketName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PartnerServiceId" Type="Int32" Nullable="false" />
+          <Property Name="NetPrice" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="Brutprice" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="OfferPrice" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="OfferSpan" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OutDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="BrutPriceSpan" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Code" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="DepartTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ArriveTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Route" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DepartPlace" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ArrivePlace" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ConfortClass" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Number" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="Details" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="PartnersServices" Relationship="ContabilidadModel.FK_AirTicketsSet_PartnersServices" FromRole="AirTicketsSet" ToRole="PartnersServices" />
+        </EntityType>
+        <EntityType Name="ClientsServices">
+          <Key>
+            <PropertyRef Name="ClientsServicesId" />
+          </Key>
+          <Property Name="ClientsServicesId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Clientid" Type="Int32" Nullable="false" />
+          <Property Name="ServiceId" Type="Int32" Nullable="false" />
+          <Property Name="IsPayer" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="ServicesSet" Relationship="ContabilidadModel.FK_ClientsServises_ServicesSet" FromRole="ClientsServices" ToRole="ServicesSet" />
+          <NavigationProperty Name="ClientsSet" Relationship="ContabilidadModel.FK_ClientsServises_ClientsSet" FromRole="ClientsServices" ToRole="ClientsSet" />
+        </EntityType>
+        <EntityType Name="CoinExchangesSet">
+          <Key>
+            <PropertyRef Name="ExchangeId" />
+          </Key>
+          <Property Name="ExchangeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IntUSDChange" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ExtEURChange" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AddedPercent" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AddedValue" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CompaniesSet">
+          <Key>
+            <PropertyRef Name="CompanyId" />
+          </Key>
+          <Property Name="CompanyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="VisualProp" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LogoAdress" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Color" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyAdress" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="EalthServicesSet" Relationship="ContabilidadModel.FK_CompaniesEalthServices" FromRole="CompaniesSet" ToRole="EalthServicesSet" />
+          <NavigationProperty Name="IncomeTableSet" Relationship="ContabilidadModel.FK_CompaniesIncomeTable" FromRole="CompaniesSet" ToRole="IncomeTableSet" />
+          <NavigationProperty Name="ServicesSet" Relationship="ContabilidadModel.FK_ServicesSet_CompaniesSet" FromRole="CompaniesSet" ToRole="ServicesSet" />
+          <NavigationProperty Name="UserCompanies" Relationship="ContabilidadModel.FK_UserCompanies_CompaniesSet" FromRole="CompaniesSet" ToRole="UserCompanies" />
+          <NavigationProperty Name="CashOperationsSet" Relationship="ContabilidadModel.FK_CashOperations_CompaniesSet" FromRole="CompaniesSet" ToRole="CashOperationsSet" />
+          <NavigationProperty Name="BankAccountsSet" Relationship="ContabilidadModel.FK_BankAccountsSet_CompaniesSet" FromRole="CompaniesSet" ToRole="BankAccountsSet" />
+        </EntityType>
+        <EntityType Name="CountriesSet">
+          <Key>
+            <PropertyRef Name="CountryId" />
+          </Key>
+          <Property Name="CountryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CountryName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CountryCode" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EnglishName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SpanishName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RussianName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="HotelsSet" Relationship="ContabilidadModel.FK_HotelsSet_CountriesSet" FromRole="CountriesSet" ToRole="HotelsSet" />
+          <NavigationProperty Name="ServicesSet" Relationship="ContabilidadModel.FK_ServicesSet_CountriesSet" FromRole="CountriesSet" ToRole="ServicesSet" />
+        </EntityType>
+        <EntityType Name="EalthServicesSet">
+          <Key>
+            <PropertyRef Name="EalthServiceId" />
+          </Key>
+          <Property Name="EalthServiceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EalthServiceName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreationDate" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Partner" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Netprice" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BrutPrice" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OfferPrice" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OfferpriceSpan" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BrutOfferSpan" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Number" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CompaniesSet" Relationship="ContabilidadModel.FK_CompaniesEalthServices" FromRole="EalthServicesSet" ToRole="CompaniesSet" />
+        </EntityType>
+        <EntityType Name="ExpensesSet">
+          <Key>
+            <PropertyRef Name="ExpenseId" />
+          </Key>
+          <Property Name="PartnerServicesID" Type="Int32" Nullable="false" />
+          <Property Name="ExpenseId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FactDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Value" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="CoinExange" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="BankPaid" Type="Boolean" Nullable="false" />
+          <Property Name="Details" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="PartnersServices" Relationship="ContabilidadModel.FK_ExpensesSet_PartnersServices" FromRole="ExpensesSet" ToRole="PartnersServices" />
+          <NavigationProperty Name="ServicesSet" Relationship="ContabilidadModel.FK_ExpensesSet_ServicesSet" FromRole="ExpensesSet" ToRole="ServicesSet" />
+        </EntityType>
+        <EntityType Name="HotelsSet">
+          <Key>
+            <PropertyRef Name="HotelId" />
+          </Key>
+          <Property Name="HotelId" Type="Int32" Nullable="false" />
+          <Property Name="Hotelname" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ServicesPartnerId" Type="Int32" Nullable="false" />
+          <Property Name="Netprice" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="BrutPrice" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="OfferPrice" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="OfferStartdate" Type="DateTime" Precision="3" />
+          <Property Name="OfferEndDate" Type="DateTime" Precision="3" />
+          <Property Name="CountryId" Type="Int32" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Room" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Food" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CheckinDate" Type="DateTime" Precision="3" />
+          <Property Name="CheckOutdate" Type="DateTime" Precision="3" />
+          <Property Name="Nights" Type="Int32" />
+          <Property Name="HotelCat" Type="Int32" />
+          <Property Name="HotelCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HotelDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="CountriesSet" Relationship="ContabilidadModel.FK_HotelsSet_CountriesSet" FromRole="HotelsSet" ToRole="CountriesSet" />
+          <NavigationProperty Name="PartnersServices" Relationship="ContabilidadModel.FK_HotelsSet_PartnersServices" FromRole="HotelsSet" ToRole="PartnersServices" />
+        </EntityType>
+        <EntityType Name="IncomesSet">
+          <Key>
+            <PropertyRef Name="IncomeId" />
+          </Key>
+          <Property Name="IncomeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ServiceId" Type="Int32" Nullable="false" />
+          <Property Name="FactDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Value" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="CoinExchange" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="IsBankPaid" Type="Boolean" Nullable="false" />
+          <Property Name="Details" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ServicesSet" Relationship="ContabilidadModel.FK_IncomesSet_ServicesSet" FromRole="IncomesSet" ToRole="ServicesSet" />
+        </EntityType>
+        <EntityType Name="IncomeTableSet">
+          <Key>
+            <PropertyRef Name="IncomeTableId" />
+          </Key>
+          <Property Name="IncomeTableId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IncomeTableName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="User" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Service" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GraphType" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Expense" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DocType" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ExpectedIncome" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RealIncome" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Plannedincome" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CompaniesCompanyId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CompaniesSet" Relationship="ContabilidadModel.FK_CompaniesIncomeTable" FromRole="IncomeTableSet" ToRole="CompaniesSet" />
+        </EntityType>
+        <EntityType Name="InventariosSet">
+          <Key>
+            <PropertyRef Name="ItemId" />
+          </Key>
+          <Property Name="ItemId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ItemCode" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Amount" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FabDate" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EntryDate" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Brand" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="PartnersServices">
+          <Key>
+            <PropertyRef Name="PartnersServicesID" />
+          </Key>
+          <Property Name="PartnersServicesID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PartnerId" Type="Int32" Nullable="false" />
+          <Property Name="ServiceId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AirTicketsSet" Relationship="ContabilidadModel.FK_AirTicketsSet_PartnersServices" FromRole="PartnersServices" ToRole="AirTicketsSet" />
+          <NavigationProperty Name="ExpensesSet" Relationship="ContabilidadModel.FK_ExpensesSet_PartnersServices" FromRole="PartnersServices" ToRole="ExpensesSet" />
+          <NavigationProperty Name="HotelsSet" Relationship="ContabilidadModel.FK_HotelsSet_PartnersServices" FromRole="PartnersServices" ToRole="HotelsSet" />
+          <NavigationProperty Name="PartnersSet" Relationship="ContabilidadModel.FK_PartnersServices_PartnersSet" FromRole="PartnersServices" ToRole="PartnersSet" />
+          <NavigationProperty Name="ServicesSet" Relationship="ContabilidadModel.FK_PartnersServices_ServicesSet" FromRole="PartnersServices" ToRole="ServicesSet" />
+          <NavigationProperty Name="ToursSet" Relationship="ContabilidadModel.FK_ToursSet_PartnersServices" FromRole="PartnersServices" ToRole="ToursSet" />
+          <NavigationProperty Name="TrainTicketsSet" Relationship="ContabilidadModel.FK_TrainTicketsSet_PartnersServices" FromRole="PartnersServices" ToRole="TrainTicketsSet" />
+          <NavigationProperty Name="TransferSet" Relationship="ContabilidadModel.FK_TransferSet_PartnersServices" FromRole="PartnersServices" ToRole="TransferSet" />
+        </EntityType>
+        <EntityType Name="PartnersSet">
+          <Key>
+            <PropertyRef Name="PartnerId" />
+          </Key>
+          <Property Name="PartnerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RealAdress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LawAdress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FinacialValue" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="RegNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Nombramiento" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ContractDate" Type="DateTime" Precision="3" />
+          <Property Name="PartnerName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FundingTimeLimit" Type="DateTime" Precision="3" />
+          <Property Name="OrganizationLocation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OrganizationPostalCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ContractNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Extra1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Extra2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Extra3" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Extra4" Type="DateTime" Precision="3" />
+          <Property Name="NickName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Isprovider" Type="Boolean" />
+          <Property Name="Iscreditor" Type="Boolean" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="PartnersServices" Relationship="ContabilidadModel.FK_PartnersServices_PartnersSet" FromRole="PartnersSet" ToRole="PartnersServices" />
+        </EntityType>
+        <EntityType Name="Permisions">
+          <Key>
+            <PropertyRef Name="UserPermissionsID" />
+          </Key>
+          <Property Name="UserPermissionsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="PermissionsTypeID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PermissionsTypes" Relationship="ContabilidadModel.FK_Permisions_PermissionsTypes" FromRole="Permisions" ToRole="PermissionsTypes" />
+          <NavigationProperty Name="Users" Relationship="ContabilidadModel.FK_Permisions_Users" FromRole="Permisions" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="PermissionsTypes">
+          <Key>
+            <PropertyRef Name="PermissionsTypesID" />
+          </Key>
+          <Property Name="PermissionsTypesID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IsUserID" Type="Boolean" Nullable="false" />
+          <Property Name="PermissionTypeName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PermisionValue" Type="Int32" />
+          <NavigationProperty Name="Permisions" Relationship="ContabilidadModel.FK_Permisions_PermissionsTypes" FromRole="PermissionsTypes" ToRole="Permisions" />
+        </EntityType>
+        <EntityType Name="ProductosSet">
+          <Key>
+            <PropertyRef Name="ProductoId" />
+          </Key>
+          <Property Name="ProductoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductoName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PriceinRub" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="USDprice" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EURPrice" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EntryDate" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PriceSpan" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="priceSpanOffer" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsIndividual" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProductTime" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Place" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Details" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="PropertiesSet">
+          <Key>
+            <PropertyRef Name="PropertyId" />
+          </Key>
+          <Property Name="PropertyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PropertyName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PropertyType" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Value" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Details" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="User" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Company" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ServicesSet">
+          <Key>
+            <PropertyRef Name="ServiceId" />
+          </Key>
+          <Property Name="ServiceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Servicename" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SeviceTypeID" Type="Int32" Nullable="false" />
+          <Property Name="CompanyID" Type="Int32" Nullable="false" />
+          <Property Name="NetPrice" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="PrecioBruto" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Specs" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Comission" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FromDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ToDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="CountryId" Type="Int32" />
+          <NavigationProperty Name="ClientsServices" Relationship="ContabilidadModel.FK_ClientsServises_ServicesSet" FromRole="ServicesSet" ToRole="ClientsServices" />
+          <NavigationProperty Name="CompaniesSet" Relationship="ContabilidadModel.FK_ServicesSet_CompaniesSet" FromRole="ServicesSet" ToRole="CompaniesSet" />
+          <NavigationProperty Name="CountriesSet" Relationship="ContabilidadModel.FK_ServicesSet_CountriesSet" FromRole="ServicesSet" ToRole="CountriesSet" />
+          <NavigationProperty Name="ExpensesSet" Relationship="ContabilidadModel.FK_ExpensesSet_ServicesSet" FromRole="ServicesSet" ToRole="ExpensesSet" />
+          <NavigationProperty Name="IncomesSet" Relationship="ContabilidadModel.FK_IncomesSet_ServicesSet" FromRole="ServicesSet" ToRole="IncomesSet" />
+          <NavigationProperty Name="PartnersServices" Relationship="ContabilidadModel.FK_PartnersServices_ServicesSet" FromRole="ServicesSet" ToRole="PartnersServices" />
+          <NavigationProperty Name="ServiceTypes" Relationship="ContabilidadModel.FK_ServicesSet_ServiceTypes1" FromRole="ServicesSet" ToRole="ServiceTypes" />
+          <NavigationProperty Name="Users" Relationship="ContabilidadModel.FK_ServicesSet_Users" FromRole="ServicesSet" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="ServiceTypes">
+          <Key>
+            <PropertyRef Name="ServiceTypeID" />
+          </Key>
+          <Property Name="ServiceTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ServiceType" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ServicesSet" Relationship="ContabilidadModel.FK_ServicesSet_ServiceTypes1" FromRole="ServiceTypes" ToRole="ServicesSet" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="ToursSet">
+          <Key>
+            <PropertyRef Name="TourId" />
+          </Key>
+          <Property Name="TourId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TourName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PartnersServiceId" Type="Int32" Nullable="false" />
+          <Property Name="NetPrice" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Brutprice" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="OfferPrice" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="OfferSpan" Type="DateTime" Precision="3" />
+          <Property Name="OutDate" Type="DateTime" Precision="3" />
+          <Property Name="BrutPriceSpan" Type="DateTime" Precision="3" />
+          <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DepartTime" Type="DateTime" Precision="3" />
+          <Property Name="ArriveTime" Type="DateTime" Precision="3" />
+          <Property Name="Route" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DepartPlace" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ArrivePlace" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ConfortClass" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Number" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Isguided" Type="Boolean" />
+          <Property Name="Transport1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Transport2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TouristCount" Type="Int32" />
+          <NavigationProperty Name="PartnersServices" Relationship="ContabilidadModel.FK_ToursSet_PartnersServices" FromRole="ToursSet" ToRole="PartnersServices" />
+        </EntityType>
+        <EntityType Name="TrainTicketsSet">
+          <Key>
+            <PropertyRef Name="TrainTicketId" />
+          </Key>
+          <Property Name="TrainTicketId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="NetPrice" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Brutprice" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="OfferPrice" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="OfferSpan" Type="DateTime" Precision="3" />
+          <Property Name="OutDate" Type="DateTime" Precision="3" />
+          <Property Name="BrutPriceSpan" Type="DateTime" Precision="3" />
+          <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DepartTime" Type="DateTime" Precision="3" />
+          <Property Name="ArriveTime" Type="DateTime" Precision="3" />
+          <Property Name="Route" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DepartPlace" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ArrivePlace" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ConfortClass" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Number" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PartnerServiceId" Type="Int32" Nullable="false" />
+          <Property Name="TouristCount" Type="Int32" />
+          <NavigationProperty Name="PartnersServices" Relationship="ContabilidadModel.FK_TrainTicketsSet_PartnersServices" FromRole="TrainTicketsSet" ToRole="PartnersServices" />
+        </EntityType>
+        <EntityType Name="TransferSet">
+          <Key>
+            <PropertyRef Name="TransferId" />
+          </Key>
+          <Property Name="TransferId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TransferName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="NetPrice" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Brutprice" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="OfferPrice" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="OfferSpan" Type="DateTime" Precision="3" />
+          <Property Name="OutDate" Type="DateTime" Precision="3" />
+          <Property Name="BrutPriceSpan" Type="DateTime" Precision="3" />
+          <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DepartTime" Type="DateTime" Precision="3" />
+          <Property Name="ArriveTime" Type="DateTime" Precision="3" />
+          <Property Name="Route" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DepartPlace" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ArrivePlace" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ConfortClass" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Number" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PartnerServiceId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PartnersServices" Relationship="ContabilidadModel.FK_TransferSet_PartnersServices" FromRole="TransferSet" ToRole="PartnersServices" />
+        </EntityType>
+        <EntityType Name="UserButtonsSet">
+          <Key>
+            <PropertyRef Name="ButtonsId" />
+          </Key>
+          <Property Name="ButtonsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UsertypeID" Type="Int32" Nullable="false" />
+          <Property Name="IconId" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="UserType" Relationship="ContabilidadModel.FK_UserButtonsSet_UserType" FromRole="UserButtonsSet" ToRole="UserType" />
+        </EntityType>
+        <EntityType Name="UserCompanies">
+          <Key>
+            <PropertyRef Name="UserCompanyID" />
+          </Key>
+          <Property Name="UserCompanyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompaniID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="CompaniesSet" Relationship="ContabilidadModel.FK_UserCompanies_CompaniesSet" FromRole="UserCompanies" ToRole="CompaniesSet" />
+          <NavigationProperty Name="Users" Relationship="ContabilidadModel.FK_UserCompanies_Users" FromRole="UserCompanies" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Notes" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserTypeID" Type="Int32" Nullable="false" />
+          <Property Name="Login" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="Binary" Nullable="false" MaxLength="50" FixedLength="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ActiveUser" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Permisions" Relationship="ContabilidadModel.FK_Permisions_Users" FromRole="Users" ToRole="Permisions" />
+          <NavigationProperty Name="ServicesSet" Relationship="ContabilidadModel.FK_ServicesSet_Users" FromRole="Users" ToRole="ServicesSet" />
+          <NavigationProperty Name="UserCompanies" Relationship="ContabilidadModel.FK_UserCompanies_Users" FromRole="Users" ToRole="UserCompanies" />
+          <NavigationProperty Name="UserType" Relationship="ContabilidadModel.FK_Users_UserType" FromRole="Users" ToRole="UserType" />
+          <NavigationProperty Name="CashOperationsSet" Relationship="ContabilidadModel.FK_CashOperationsSet_Users" FromRole="Users" ToRole="CashOperationsSet" />
+        </EntityType>
+        <EntityType Name="UserType">
+          <Key>
+            <PropertyRef Name="UserTypeID" />
+          </Key>
+          <Property Name="UserTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserTypeName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="UserButtonsSet" Relationship="ContabilidadModel.FK_UserButtonsSet_UserType" FromRole="UserType" ToRole="UserButtonsSet" />
+          <NavigationProperty Name="Users" Relationship="ContabilidadModel.FK_Users_UserType" FromRole="UserType" ToRole="Users" />
+        </EntityType>
+        <Association Name="FK_AirTicketsSet_PartnersServices">
+          <End Type="ContabilidadModel.PartnersServices" Role="PartnersServices" Multiplicity="1" />
+          <End Type="ContabilidadModel.AirTicketsSet" Role="AirTicketsSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PartnersServices">
+              <PropertyRef Name="PartnersServicesID" />
+            </Principal>
+            <Dependent Role="AirTicketsSet">
+              <PropertyRef Name="PartnerServiceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientsServises_ServicesSet">
+          <End Type="ContabilidadModel.ServicesSet" Role="ServicesSet" Multiplicity="1" />
+          <End Type="ContabilidadModel.ClientsServices" Role="ClientsServices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServicesSet">
+              <PropertyRef Name="ServiceId" />
+            </Principal>
+            <Dependent Role="ClientsServices">
+              <PropertyRef Name="ServiceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompaniesEalthServices">
+          <End Type="ContabilidadModel.CompaniesSet" Role="CompaniesSet" Multiplicity="1" />
+          <End Type="ContabilidadModel.EalthServicesSet" Role="EalthServicesSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompaniesSet">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="EalthServicesSet">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompaniesIncomeTable">
+          <End Type="ContabilidadModel.CompaniesSet" Role="CompaniesSet" Multiplicity="1" />
+          <End Type="ContabilidadModel.IncomeTableSet" Role="IncomeTableSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompaniesSet">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="IncomeTableSet">
+              <PropertyRef Name="CompaniesCompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServicesSet_CompaniesSet">
+          <End Type="ContabilidadModel.CompaniesSet" Role="CompaniesSet" Multiplicity="1" />
+          <End Type="ContabilidadModel.ServicesSet" Role="ServicesSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompaniesSet">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="ServicesSet">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserCompanies_CompaniesSet">
+          <End Type="ContabilidadModel.CompaniesSet" Role="CompaniesSet" Multiplicity="1" />
+          <End Type="ContabilidadModel.UserCompanies" Role="UserCompanies" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompaniesSet">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="UserCompanies">
+              <PropertyRef Name="CompaniID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HotelsSet_CountriesSet">
+          <End Type="ContabilidadModel.CountriesSet" Role="CountriesSet" Multiplicity="1" />
+          <End Type="ContabilidadModel.HotelsSet" Role="HotelsSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CountriesSet">
+              <PropertyRef Name="CountryId" />
+            </Principal>
+            <Dependent Role="HotelsSet">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServicesSet_CountriesSet">
+          <End Type="ContabilidadModel.CountriesSet" Role="CountriesSet" Multiplicity="0..1" />
+          <End Type="ContabilidadModel.ServicesSet" Role="ServicesSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CountriesSet">
+              <PropertyRef Name="CountryId" />
+            </Principal>
+            <Dependent Role="ServicesSet">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExpensesSet_PartnersServices">
+          <End Type="ContabilidadModel.PartnersServices" Role="PartnersServices" Multiplicity="1" />
+          <End Type="ContabilidadModel.ExpensesSet" Role="ExpensesSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PartnersServices">
+              <PropertyRef Name="PartnersServicesID" />
+            </Principal>
+            <Dependent Role="ExpensesSet">
+              <PropertyRef Name="PartnerServicesID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExpensesSet_ServicesSet">
+          <End Type="ContabilidadModel.ServicesSet" Role="ServicesSet" Multiplicity="1" />
+          <End Type="ContabilidadModel.ExpensesSet" Role="ExpensesSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServicesSet">
+              <PropertyRef Name="ServiceId" />
+            </Principal>
+            <Dependent Role="ExpensesSet">
+              <PropertyRef Name="PartnerServicesID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HotelsSet_PartnersServices">
+          <End Type="ContabilidadModel.PartnersServices" Role="PartnersServices" Multiplicity="1" />
+          <End Type="ContabilidadModel.HotelsSet" Role="HotelsSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PartnersServices">
+              <PropertyRef Name="PartnersServicesID" />
+            </Principal>
+            <Dependent Role="HotelsSet">
+              <PropertyRef Name="ServicesPartnerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IncomesSet_ServicesSet">
+          <End Type="ContabilidadModel.ServicesSet" Role="ServicesSet" Multiplicity="1" />
+          <End Type="ContabilidadModel.IncomesSet" Role="IncomesSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServicesSet">
+              <PropertyRef Name="ServiceId" />
+            </Principal>
+            <Dependent Role="IncomesSet">
+              <PropertyRef Name="ServiceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PartnersServices_PartnersSet">
+          <End Type="ContabilidadModel.PartnersSet" Role="PartnersSet" Multiplicity="1" />
+          <End Type="ContabilidadModel.PartnersServices" Role="PartnersServices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PartnersSet">
+              <PropertyRef Name="PartnerId" />
+            </Principal>
+            <Dependent Role="PartnersServices">
+              <PropertyRef Name="PartnerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PartnersServices_ServicesSet">
+          <End Type="ContabilidadModel.ServicesSet" Role="ServicesSet" Multiplicity="1" />
+          <End Type="ContabilidadModel.PartnersServices" Role="PartnersServices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServicesSet">
+              <PropertyRef Name="ServiceId" />
+            </Principal>
+            <Dependent Role="PartnersServices">
+              <PropertyRef Name="ServiceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ToursSet_PartnersServices">
+          <End Type="ContabilidadModel.PartnersServices" Role="PartnersServices" Multiplicity="1" />
+          <End Type="ContabilidadModel.ToursSet" Role="ToursSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PartnersServices">
+              <PropertyRef Name="PartnersServicesID" />
+            </Principal>
+            <Dependent Role="ToursSet">
+              <PropertyRef Name="PartnersServiceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TrainTicketsSet_PartnersServices">
+          <End Type="ContabilidadModel.PartnersServices" Role="PartnersServices" Multiplicity="1" />
+          <End Type="ContabilidadModel.TrainTicketsSet" Role="TrainTicketsSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PartnersServices">
+              <PropertyRef Name="PartnersServicesID" />
+            </Principal>
+            <Dependent Role="TrainTicketsSet">
+              <PropertyRef Name="PartnerServiceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransferSet_PartnersServices">
+          <End Type="ContabilidadModel.PartnersServices" Role="PartnersServices" Multiplicity="1" />
+          <End Type="ContabilidadModel.TransferSet" Role="TransferSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PartnersServices">
+              <PropertyRef Name="PartnersServicesID" />
+            </Principal>
+            <Dependent Role="TransferSet">
+              <PropertyRef Name="PartnerServiceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Permisions_PermissionsTypes">
+          <End Type="ContabilidadModel.PermissionsTypes" Role="PermissionsTypes" Multiplicity="1" />
+          <End Type="ContabilidadModel.Permisions" Role="Permisions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PermissionsTypes">
+              <PropertyRef Name="PermissionsTypesID" />
+            </Principal>
+            <Dependent Role="Permisions">
+              <PropertyRef Name="PermissionsTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Permisions_Users">
+          <End Type="ContabilidadModel.Users" Role="Users" Multiplicity="1" />
+          <End Type="ContabilidadModel.Permisions" Role="Permisions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Permisions">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServicesSet_ServiceTypes1">
+          <End Type="ContabilidadModel.ServiceTypes" Role="ServiceTypes" Multiplicity="1" />
+          <End Type="ContabilidadModel.ServicesSet" Role="ServicesSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServiceTypes">
+              <PropertyRef Name="ServiceTypeID" />
+            </Principal>
+            <Dependent Role="ServicesSet">
+              <PropertyRef Name="SeviceTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServicesSet_Users">
+          <End Type="ContabilidadModel.Users" Role="Users" Multiplicity="1" />
+          <End Type="ContabilidadModel.ServicesSet" Role="ServicesSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="ServicesSet">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserButtonsSet_UserType">
+          <End Type="ContabilidadModel.UserType" Role="UserType" Multiplicity="1" />
+          <End Type="ContabilidadModel.UserButtonsSet" Role="UserButtonsSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserType">
+              <PropertyRef Name="UserTypeID" />
+            </Principal>
+            <Dependent Role="UserButtonsSet">
+              <PropertyRef Name="UsertypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserCompanies_Users">
+          <End Type="ContabilidadModel.Users" Role="Users" Multiplicity="1" />
+          <End Type="ContabilidadModel.UserCompanies" Role="UserCompanies" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="UserCompanies">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_UserType">
+          <End Type="ContabilidadModel.UserType" Role="UserType" Multiplicity="1" />
+          <End Type="ContabilidadModel.Users" Role="Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserType">
+              <PropertyRef Name="UserTypeID" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="UserTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ClientsSet">
+          <Key>
+            <PropertyRef Name="ClientId" />
+          </Key>
+          <Property Name="ClientId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IDNumber" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BirthDate" Type="DateTime" Precision="3" />
+          <Property Name="Gender" Type="Boolean" />
+          <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="VisaLimit" Type="DateTime" Precision="3" />
+          <Property Name="Adress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ExtPassportName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BirthPlace" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ExtPassportNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ExtpassportExpDate" Type="DateTime" Precision="3" />
+          <Property Name="Extra1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Extra2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Extra3" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="Serial" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Extra4" Type="DateTime" Precision="3" />
+          <Property Name="HasEmail" Type="Boolean" />
+          <Property Name="CitizenShip" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ClientsServices" Relationship="ContabilidadModel.FK_ClientsServises_ClientsSet" FromRole="ClientsSet" ToRole="ClientsServices" />
+        </EntityType>
+        <Association Name="FK_ClientsServises_ClientsSet">
+          <End Type="ContabilidadModel.ClientsSet" Role="ClientsSet" Multiplicity="1" />
+          <End Type="ContabilidadModel.ClientsServices" Role="ClientsServices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClientsSet">
+              <PropertyRef Name="ClientId" />
+            </Principal>
+            <Dependent Role="ClientsServices">
+              <PropertyRef Name="Clientid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CashOperationsTypesSet">
+          <Key>
+            <PropertyRef Name="CashOpTypesId" />
+          </Key>
+          <Property Name="CashOpTypesId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CashOPTypeName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CashOperationsSet" Relationship="ContabilidadModel.FK_CashOperationsSet_CashOperationsTypesSet" FromRole="CashOperationsTypesSet" ToRole="CashOperationsSet" />
+          </EntityType>
+        <EntityType Name="CashOperationsSet">
+          <Key>
+            <PropertyRef Name="CashOPId" />
+          </Key>
+          <Property Name="CashOPId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CashOPDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Value" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsBank" Type="Boolean" Nullable="false" />
+          <Property Name="IsIncome" Type="Boolean" Nullable="false" />
+          <Property Name="CompanyId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="CashOPTypeId" Type="Int32" Nullable="false" />
+          <Property Name="AccountId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CompaniesSet" Relationship="ContabilidadModel.FK_CashOperations_CompaniesSet" FromRole="CashOperationsSet" ToRole="CompaniesSet" />
+          <NavigationProperty Name="CashOperationsTypesSet" Relationship="ContabilidadModel.FK_CashOperationsSet_CashOperationsTypesSet" FromRole="CashOperationsSet" ToRole="CashOperationsTypesSet" />
+          <NavigationProperty Name="Users" Relationship="ContabilidadModel.FK_CashOperationsSet_Users" FromRole="CashOperationsSet" ToRole="Users" />
+          <NavigationProperty Name="BankAccountsSet" Relationship="ContabilidadModel.FK_CashOperationsSet_BankAccountsSet" FromRole="CashOperationsSet" ToRole="BankAccountsSet" />
+        </EntityType>
+        <EntityType Name="CompanyCashOP">
+          <Key>
+            <PropertyRef Name="CashOPId" />
+          </Key>
+          <Property Name="CashOPId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CashOPDate" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Value" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Details" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CashValue" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BankValue" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="debtsToPay" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DebtsToRecieve" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="InventValue" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CompanyCashOP1" Relationship="ContabilidadModel.FK_CompanyCashOP_CompanyCashOP" FromRole="CompanyCashOP" ToRole="CompanyCashOP1" />
+          <NavigationProperty Name="CompanyCashOP2" Relationship="ContabilidadModel.FK_CompanyCashOP_CompanyCashOP" FromRole="CompanyCashOP1" ToRole="CompanyCashOP" />
+        </EntityType>
+        <Association Name="FK_CashOperations_CompaniesSet">
+          <End Type="ContabilidadModel.CompaniesSet" Role="CompaniesSet" Multiplicity="1" />
+          <End Type="ContabilidadModel.CashOperationsSet" Role="CashOperationsSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompaniesSet">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="CashOperationsSet">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CashOperationsSet_CashOperationsTypesSet">
+          <End Type="ContabilidadModel.CashOperationsTypesSet" Role="CashOperationsTypesSet" Multiplicity="1" />
+          <End Type="ContabilidadModel.CashOperationsSet" Role="CashOperationsSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CashOperationsTypesSet">
+              <PropertyRef Name="CashOpTypesId" />
+            </Principal>
+            <Dependent Role="CashOperationsSet">
+              <PropertyRef Name="CashOPTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CashOperationsSet_Users">
+          <End Type="ContabilidadModel.Users" Role="Users" Multiplicity="1" />
+          <End Type="ContabilidadModel.CashOperationsSet" Role="CashOperationsSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="CashOperationsSet">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompanyCashOP_CompanyCashOP">
+          <End Type="ContabilidadModel.CompanyCashOP" Role="CompanyCashOP" Multiplicity="1" />
+          <End Type="ContabilidadModel.CompanyCashOP" Role="CompanyCashOP1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="CompanyCashOP">
+              <PropertyRef Name="CashOPId" />
+            </Principal>
+            <Dependent Role="CompanyCashOP1">
+              <PropertyRef Name="CashOPId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="BankAccountsSet">
+          <Key>
+            <PropertyRef Name="AcccountId" />
+          </Key>
+          <Property Name="AcccountId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AccountName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyId" Type="Int32" Nullable="false" />
+          <Property Name="AccountNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AccountValue" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="CompaniesSet" Relationship="ContabilidadModel.FK_BankAccountsSet_CompaniesSet" FromRole="BankAccountsSet" ToRole="CompaniesSet" />
+          <NavigationProperty Name="CashOperationsSet" Relationship="ContabilidadModel.FK_CashOperationsSet_BankAccountsSet" FromRole="BankAccountsSet" ToRole="CashOperationsSet" />
+        </EntityType>
+        <Association Name="FK_BankAccountsSet_CompaniesSet">
+          <End Type="ContabilidadModel.CompaniesSet" Role="CompaniesSet" Multiplicity="1" />
+          <End Type="ContabilidadModel.BankAccountsSet" Role="BankAccountsSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompaniesSet">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="BankAccountsSet">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CashOperationsSet_BankAccountsSet">
+          <End Type="ContabilidadModel.BankAccountsSet" Role="BankAccountsSet" Multiplicity="1" />
+          <End Type="ContabilidadModel.CashOperationsSet" Role="CashOperationsSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BankAccountsSet">
+              <PropertyRef Name="AcccountId" />
+            </Principal>
+            <Dependent Role="CashOperationsSet">
+              <PropertyRef Name="AccountId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ContabilidadModelStoreContainer" CdmEntityContainer="ContabilidadEntities">
+    <EntitySetMapping Name="AirTicketsSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ContabilidadModel.AirTicketsSet)">
+        <MappingFragment StoreEntitySet="AirTicketsSet">
+          <ScalarProperty Name="AirTicketId" ColumnName="AirTicketId" />
+          <ScalarProperty Name="TicketName" ColumnName="TicketName" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="PartnerServiceId" ColumnName="PartnerServiceId" />
+          <ScalarProperty Name="NetPrice" ColumnName="NetPrice" />
+          <ScalarProperty Name="Brutprice" ColumnName="Brutprice" />
+          <ScalarProperty Name="OfferPrice" ColumnName="OfferPrice" />
+          <ScalarProperty Name="OfferSpan" ColumnName="OfferSpan" />
+          <ScalarProperty Name="OutDate" ColumnName="OutDate" />
+          <ScalarProperty Name="BrutPriceSpan" ColumnName="BrutPriceSpan" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="DepartTime" ColumnName="DepartTime" />
+          <ScalarProperty Name="ArriveTime" ColumnName="ArriveTime" />
+          <ScalarProperty Name="Route" ColumnName="Route" />
+          <ScalarProperty Name="DepartPlace" ColumnName="DepartPlace" />
+          <ScalarProperty Name="ArrivePlace" ColumnName="ArrivePlace" />
+          <ScalarProperty Name="ConfortClass" ColumnName="ConfortClass" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Details" ColumnName="Details" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClientsServices">
+      <EntityTypeMapping TypeName="IsTypeOf(ContabilidadModel.ClientsServices)">
+        <MappingFragment StoreEntitySet="ClientsServices">
+          <ScalarProperty Name="ClientsServicesId" ColumnName="ClientsServicesId" />
+          <ScalarProperty Name="Clientid" ColumnName="Clientid" />
+          <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
+          <ScalarProperty Name="IsPayer" ColumnName="IsPayer" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CoinExchangesSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ContabilidadModel.CoinExchangesSet)">
+        <MappingFragment StoreEntitySet="CoinExchangesSet">
+          <ScalarProperty Name="ExchangeId" ColumnName="ExchangeId" />
+          <ScalarProperty Name="IntUSDChange" ColumnName="IntUSDChange" />
+          <ScalarProperty Name="ExtEURChange" ColumnName="ExtEURChange" />
+          <ScalarProperty Name="AddedPercent" ColumnName="AddedPercent" />
+          <ScalarProperty Name="AddedValue" ColumnName="AddedValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CompaniesSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ContabilidadModel.CompaniesSet)">
+        <MappingFragment StoreEntitySet="CompaniesSet">
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="VisualProp" ColumnName="VisualProp" />
+          <ScalarProperty Name="LogoAdress" ColumnName="LogoAdress" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="CompanyAdress" ColumnName="CompanyAdress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CountriesSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ContabilidadModel.CountriesSet)">
+        <MappingFragment StoreEntitySet="CountriesSet">
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+          <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+          <ScalarProperty Name="EnglishName" ColumnName="EnglishName" />
+          <ScalarProperty Name="SpanishName" ColumnName="SpanishName" />
+          <ScalarProperty Name="RussianName" ColumnName="RussianName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EalthServicesSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ContabilidadModel.EalthServicesSet)">
+        <MappingFragment StoreEntitySet="EalthServicesSet">
+          <ScalarProperty Name="EalthServiceId" ColumnName="EalthServiceId" />
+          <ScalarProperty Name="EalthServiceName" ColumnName="EalthServiceName" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="Partner" ColumnName="Partner" />
+          <ScalarProperty Name="Netprice" ColumnName="Netprice" />
+          <ScalarProperty Name="BrutPrice" ColumnName="BrutPrice" />
+          <ScalarProperty Name="OfferPrice" ColumnName="OfferPrice" />
+          <ScalarProperty Name="OfferpriceSpan" ColumnName="OfferpriceSpan" />
+          <ScalarProperty Name="BrutOfferSpan" ColumnName="BrutOfferSpan" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExpensesSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ContabilidadModel.ExpensesSet)">
+        <MappingFragment StoreEntitySet="ExpensesSet">
+          <ScalarProperty Name="ExpenseId" ColumnName="ExpenseId" />
+          <ScalarProperty Name="PartnerServicesID" ColumnName="PartnerServicesID" />
+          <ScalarProperty Name="FactDate" ColumnName="FactDate" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="CoinExange" ColumnName="CoinExange" />
+          <ScalarProperty Name="BankPaid" ColumnName="BankPaid" />
+          <ScalarProperty Name="Details" ColumnName="Details" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HotelsSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ContabilidadModel.HotelsSet)">
+        <MappingFragment StoreEntitySet="HotelsSet">
+          <ScalarProperty Name="HotelId" ColumnName="HotelId" />
+          <ScalarProperty Name="Hotelname" ColumnName="Hotelname" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="ServicesPartnerId" ColumnName="ServicesPartnerId" />
+          <ScalarProperty Name="Netprice" ColumnName="Netprice" />
+          <ScalarProperty Name="BrutPrice" ColumnName="BrutPrice" />
+          <ScalarProperty Name="OfferPrice" ColumnName="OfferPrice" />
+          <ScalarProperty Name="OfferStartdate" ColumnName="OfferStartdate" />
+          <ScalarProperty Name="OfferEndDate" ColumnName="OfferEndDate" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Room" ColumnName="Room" />
+          <ScalarProperty Name="Food" ColumnName="Food" />
+          <ScalarProperty Name="CheckinDate" ColumnName="CheckinDate" />
+          <ScalarProperty Name="CheckOutdate" ColumnName="CheckOutdate" />
+          <ScalarProperty Name="Nights" ColumnName="Nights" />
+          <ScalarProperty Name="HotelCat" ColumnName="HotelCat" />
+          <ScalarProperty Name="HotelCode" ColumnName="HotelCode" />
+          <ScalarProperty Name="HotelDetails" ColumnName="HotelDetails" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IncomesSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ContabilidadModel.IncomesSet)">
+        <MappingFragment StoreEntitySet="IncomesSet">
+          <ScalarProperty Name="IncomeId" ColumnName="IncomeId" />
+          <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
+          <ScalarProperty Name="FactDate" ColumnName="FactDate" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="CoinExchange" ColumnName="CoinExchange" />
+          <ScalarProperty Name="IsBankPaid" ColumnName="IsBankPaid" />
+          <ScalarProperty Name="Details" ColumnName="Details" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IncomeTableSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ContabilidadModel.IncomeTableSet)">
+        <MappingFragment StoreEntitySet="IncomeTableSet">
+          <ScalarProperty Name="IncomeTableId" ColumnName="IncomeTableId" />
+          <ScalarProperty Name="IncomeTableName" ColumnName="IncomeTableName" />
+          <ScalarProperty Name="User" ColumnName="User" />
+          <ScalarProperty Name="Service" ColumnName="Service" />
+          <ScalarProperty Name="GraphType" ColumnName="GraphType" />
+          <ScalarProperty Name="Expense" ColumnName="Expense" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="DocType" ColumnName="DocType" />
+          <ScalarProperty Name="ExpectedIncome" ColumnName="ExpectedIncome" />
+          <ScalarProperty Name="RealIncome" ColumnName="RealIncome" />
+          <ScalarProperty Name="Plannedincome" ColumnName="Plannedincome" />
+          <ScalarProperty Name="CompaniesCompanyId" ColumnName="CompaniesCompanyId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InventariosSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ContabilidadModel.InventariosSet)">
+        <MappingFragment StoreEntitySet="InventariosSet">
+          <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+          <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+          <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="FabDate" ColumnName="FabDate" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="Brand" ColumnName="Brand" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PartnersServices">
+      <EntityTypeMapping TypeName="IsTypeOf(ContabilidadModel.PartnersServices)">
+        <MappingFragment StoreEntitySet="PartnersServices">
+          <ScalarProperty Name="PartnersServicesID" ColumnName="PartnersServicesID" />
+          <ScalarProperty Name="PartnerId" ColumnName="PartnerId" />
+          <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PartnersSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ContabilidadModel.PartnersSet)">
+        <MappingFragment StoreEntitySet="PartnersSet">
+          <ScalarProperty Name="PartnerId" ColumnName="PartnerId" />
+          <ScalarProperty Name="RealAdress" ColumnName="RealAdress" />
+          <ScalarProperty Name="LawAdress" ColumnName="LawAdress" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="FinacialValue" ColumnName="FinacialValue" />
+          <ScalarProperty Name="RegNumber" ColumnName="RegNumber" />
+          <ScalarProperty Name="Nombramiento" ColumnName="Nombramiento" />
+          <ScalarProperty Name="ContractDate" ColumnName="ContractDate" />
+          <ScalarProperty Name="PartnerName" ColumnName="PartnerName" />
+          <ScalarProperty Name="FundingTimeLimit" ColumnName="FundingTimeLimit" />
+          <ScalarProperty Name="OrganizationLocation" ColumnName="OrganizationLocation" />
+          <ScalarProperty Name="OrganizationPostalCode" ColumnName="OrganizationPostalCode" />
+          <ScalarProperty Name="ContractNumber" ColumnName="ContractNumber" />
+          <ScalarProperty Name="Extra1" ColumnName="Extra1" />
+          <ScalarProperty Name="Extra2" ColumnName="Extra2" />
+          <ScalarProperty Name="Extra3" ColumnName="Extra3" />
+          <ScalarProperty Name="Extra4" ColumnName="Extra4" />
+          <ScalarProperty Name="NickName" ColumnName="NickName" />
+          <ScalarProperty Name="Isprovider" ColumnName="Isprovider" />
+          <ScalarProperty Name="Iscreditor" ColumnName="Iscreditor" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Permisions">
+      <EntityTypeMapping TypeName="IsTypeOf(ContabilidadModel.Permisions)">
+        <MappingFragment StoreEntitySet="Permisions">
+          <ScalarProperty Name="UserPermissionsID" ColumnName="UserPermissionsID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="PermissionsTypeID" ColumnName="PermissionsTypeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PermissionsTypes">
+      <EntityTypeMapping TypeName="IsTypeOf(ContabilidadModel.PermissionsTypes)">
+        <MappingFragment StoreEntitySet="PermissionsTypes">
+          <ScalarProperty Name="PermissionsTypesID" ColumnName="PermissionsTypesID" />
+          <ScalarProperty Name="IsUserID" ColumnName="IsUserID" />
+          <ScalarProperty Name="PermissionTypeName" ColumnName="PermissionTypeName" />
+          <ScalarProperty Name="PermisionValue" ColumnName="PermisionValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductosSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ContabilidadModel.ProductosSet)">
+        <MappingFragment StoreEntitySet="ProductosSet">
+          <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />
+          <ScalarProperty Name="ProductoName" ColumnName="ProductoName" />
+          <ScalarProperty Name="PriceinRub" ColumnName="PriceinRub" />
+          <ScalarProperty Name="USDprice" ColumnName="USDprice" />
+          <ScalarProperty Name="EURPrice" ColumnName="EURPrice" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="PriceSpan" ColumnName="PriceSpan" />
+          <ScalarProperty Name="priceSpanOffer" ColumnName="priceSpanOffer" />
+          <ScalarProperty Name="IsIndividual" ColumnName="IsIndividual" />
+          <ScalarProperty Name="ProductTime" ColumnName="ProductTime" />
+          <ScalarProperty Name="Place" ColumnName="Place" />
+          <ScalarProperty Name="Details" ColumnName="Details" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PropertiesSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ContabilidadModel.PropertiesSet)">
+        <MappingFragment StoreEntitySet="PropertiesSet">
+          <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+          <ScalarProperty Name="PropertyName" ColumnName="PropertyName" />
+          <ScalarProperty Name="PropertyType" ColumnName="PropertyType" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Details" ColumnName="Details" />
+          <ScalarProperty Name="User" ColumnName="User" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ServicesSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ContabilidadModel.ServicesSet)">
+        <MappingFragment StoreEntitySet="ServicesSet">
+          <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
+          <ScalarProperty Name="Servicename" ColumnName="Servicename" />
+          <ScalarProperty Name="SeviceTypeID" ColumnName="SeviceTypeID" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="NetPrice" ColumnName="NetPrice" />
+          <ScalarProperty Name="PrecioBruto" ColumnName="PrecioBruto" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="Specs" ColumnName="Specs" />
+          <ScalarProperty Name="Comission" ColumnName="Comission" />
+          <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+          <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ServiceTypes">
+      <EntityTypeMapping TypeName="IsTypeOf(ContabilidadModel.ServiceTypes)">
+        <MappingFragment StoreEntitySet="ServiceTypes">
+          <ScalarProperty Name="ServiceTypeID" ColumnName="ServiceTypeID" />
+          <ScalarProperty Name="ServiceType" ColumnName="ServiceType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="IsTypeOf(ContabilidadModel.sysdiagrams)">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ToursSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ContabilidadModel.ToursSet)">
+        <MappingFragment StoreEntitySet="ToursSet">
+          <ScalarProperty Name="TourId" ColumnName="TourId" />
+          <ScalarProperty Name="TourName" ColumnName="TourName" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="PartnersServiceId" ColumnName="PartnersServiceId" />
+          <ScalarProperty Name="NetPrice" ColumnName="NetPrice" />
+          <ScalarProperty Name="Brutprice" ColumnName="Brutprice" />
+          <ScalarProperty Name="OfferPrice" ColumnName="OfferPrice" />
+          <ScalarProperty Name="OfferSpan" ColumnName="OfferSpan" />
+          <ScalarProperty Name="OutDate" ColumnName="OutDate" />
+          <ScalarProperty Name="BrutPriceSpan" ColumnName="BrutPriceSpan" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="DepartTime" ColumnName="DepartTime" />
+          <ScalarProperty Name="ArriveTime" ColumnName="ArriveTime" />
+          <ScalarProperty Name="Route" ColumnName="Route" />
+          <ScalarProperty Name="DepartPlace" ColumnName="DepartPlace" />
+          <ScalarProperty Name="ArrivePlace" ColumnName="ArrivePlace" />
+          <ScalarProperty Name="ConfortClass" ColumnName="ConfortClass" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Details" ColumnName="Details" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Isguided" ColumnName="Isguided" />
+          <ScalarProperty Name="Transport1" ColumnName="Transport1" />
+          <ScalarProperty Name="Transport2" ColumnName="Transport2" />
+          <ScalarProperty Name="TouristCount" ColumnName="TouristCount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TrainTicketsSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ContabilidadModel.TrainTicketsSet)">
+        <MappingFragment StoreEntitySet="TrainTicketsSet">
+          <ScalarProperty Name="TrainTicketId" ColumnName="TrainTicketId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="NetPrice" ColumnName="NetPrice" />
+          <ScalarProperty Name="Brutprice" ColumnName="Brutprice" />
+          <ScalarProperty Name="OfferPrice" ColumnName="OfferPrice" />
+          <ScalarProperty Name="OfferSpan" ColumnName="OfferSpan" />
+          <ScalarProperty Name="OutDate" ColumnName="OutDate" />
+          <ScalarProperty Name="BrutPriceSpan" ColumnName="BrutPriceSpan" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="DepartTime" ColumnName="DepartTime" />
+          <ScalarProperty Name="ArriveTime" ColumnName="ArriveTime" />
+          <ScalarProperty Name="Route" ColumnName="Route" />
+          <ScalarProperty Name="DepartPlace" ColumnName="DepartPlace" />
+          <ScalarProperty Name="ArrivePlace" ColumnName="ArrivePlace" />
+          <ScalarProperty Name="ConfortClass" ColumnName="ConfortClass" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Details" ColumnName="Details" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="PartnerServiceId" ColumnName="PartnerServiceId" />
+          <ScalarProperty Name="TouristCount" ColumnName="TouristCount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TransferSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ContabilidadModel.TransferSet)">
+        <MappingFragment StoreEntitySet="TransferSet">
+          <ScalarProperty Name="TransferId" ColumnName="TransferId" />
+          <ScalarProperty Name="TransferName" ColumnName="TransferName" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="NetPrice" ColumnName="NetPrice" />
+          <ScalarProperty Name="Brutprice" ColumnName="Brutprice" />
+          <ScalarProperty Name="OfferPrice" ColumnName="OfferPrice" />
+          <ScalarProperty Name="OfferSpan" ColumnName="OfferSpan" />
+          <ScalarProperty Name="OutDate" ColumnName="OutDate" />
+          <ScalarProperty Name="BrutPriceSpan" ColumnName="BrutPriceSpan" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="DepartTime" ColumnName="DepartTime" />
+          <ScalarProperty Name="ArriveTime" ColumnName="ArriveTime" />
+          <ScalarProperty Name="Route" ColumnName="Route" />
+          <ScalarProperty Name="DepartPlace" ColumnName="DepartPlace" />
+          <ScalarProperty Name="ArrivePlace" ColumnName="ArrivePlace" />
+          <ScalarProperty Name="ConfortClass" ColumnName="ConfortClass" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Details" ColumnName="Details" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="PartnerServiceId" ColumnName="PartnerServiceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserButtonsSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ContabilidadModel.UserButtonsSet)">
+        <MappingFragment StoreEntitySet="UserButtonsSet">
+          <ScalarProperty Name="ButtonsId" ColumnName="ButtonsId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UsertypeID" ColumnName="UsertypeID" />
+          <ScalarProperty Name="IconId" ColumnName="IconId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserCompanies">
+      <EntityTypeMapping TypeName="IsTypeOf(ContabilidadModel.UserCompanies)">
+        <MappingFragment StoreEntitySet="UserCompanies">
+          <ScalarProperty Name="UserCompanyID" ColumnName="UserCompanyID" />
+          <ScalarProperty Name="CompaniID" ColumnName="CompaniID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="IsTypeOf(ContabilidadModel.Users)">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="UserTypeID" ColumnName="UserTypeID" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="ActiveUser" ColumnName="ActiveUser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserType">
+      <EntityTypeMapping TypeName="IsTypeOf(ContabilidadModel.UserType)">
+        <MappingFragment StoreEntitySet="UserType">
+          <ScalarProperty Name="UserTypeID" ColumnName="UserTypeID" />
+          <ScalarProperty Name="UserTypeName" ColumnName="UserTypeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClientsSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ContabilidadModel.ClientsSet)">
+        <MappingFragment StoreEntitySet="ClientsSet">
+          <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+          <ScalarProperty Name="IDName" ColumnName="IDName" />
+          <ScalarProperty Name="IDNumber" ColumnName="IDNumber" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="VisaLimit" ColumnName="VisaLimit" />
+          <ScalarProperty Name="Adress" ColumnName="Adress" />
+          <ScalarProperty Name="ExtPassportName" ColumnName="ExtPassportName" />
+          <ScalarProperty Name="BirthPlace" ColumnName="BirthPlace" />
+          <ScalarProperty Name="ExtPassportNumber" ColumnName="ExtPassportNumber" />
+          <ScalarProperty Name="ExtpassportExpDate" ColumnName="ExtpassportExpDate" />
+          <ScalarProperty Name="Extra1" ColumnName="Extra1" />
+          <ScalarProperty Name="Extra2" ColumnName="Extra2" />
+          <ScalarProperty Name="Extra3" ColumnName="Extra3" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Serial" ColumnName="Serial" />
+          <ScalarProperty Name="Extra4" ColumnName="Extra4" />
+          <ScalarProperty Name="HasEmail" ColumnName="HasEmail" />
+          <ScalarProperty Name="CitizenShip" ColumnName="CitizenShip" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+          <EntitySetMapping Name="CashOperationsTypesSet">
+            <EntityTypeMapping TypeName="ContabilidadModel.CashOperationsTypesSet">
+              <MappingFragment StoreEntitySet="CashOperationsTypesSet">
+                <ScalarProperty Name="CashOPTypeName" ColumnName="CashOPTypeName" />
+                <ScalarProperty Name="CashOpTypesId" ColumnName="CashOpTypesId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CashOperationsSet">
+            <EntityTypeMapping TypeName="ContabilidadModel.CashOperationsSet">
+              <MappingFragment StoreEntitySet="CashOperationsSet">
+                <ScalarProperty Name="AccountId" ColumnName="AccountId" />
+                <ScalarProperty Name="CashOPTypeId" ColumnName="CashOPTypeId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="IsIncome" ColumnName="IsIncome" />
+                <ScalarProperty Name="IsBank" ColumnName="IsBank" />
+                <ScalarProperty Name="Details" ColumnName="Details" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="CashOPDate" ColumnName="CashOPDate" />
+                <ScalarProperty Name="CashOPId" ColumnName="CashOPId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CompanyCashOP">
+            <EntityTypeMapping TypeName="ContabilidadModel.CompanyCashOP">
+              <MappingFragment StoreEntitySet="CompanyCashOP">
+                <ScalarProperty Name="InventValue" ColumnName="InventValue" />
+                <ScalarProperty Name="DebtsToRecieve" ColumnName="DebtsToRecieve" />
+                <ScalarProperty Name="debtsToPay" ColumnName="debtsToPay" />
+                <ScalarProperty Name="BankValue" ColumnName="BankValue" />
+                <ScalarProperty Name="CashValue" ColumnName="CashValue" />
+                <ScalarProperty Name="Details" ColumnName="Details" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="CashOPDate" ColumnName="CashOPDate" />
+                <ScalarProperty Name="CashOPId" ColumnName="CashOPId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BankAccountsSet">
+            <EntityTypeMapping TypeName="ContabilidadModel.BankAccountsSet">
+              <MappingFragment StoreEntitySet="BankAccountsSet">
+                <ScalarProperty Name="AccountValue" ColumnName="AccountValue" />
+                <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+                <ScalarProperty Name="AcccountId" ColumnName="AcccountId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,1351 @@
+
+-- --------------------------------------------------
+-- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
+-- --------------------------------------------------
+-- Date Created: 08/25/2018 23:39:20
+-- Generated from EDMX file: C:\Users\ivan\Documents\Visual Studio 2015\Projects\DXApplication2\DataHandler\DBData.edmx
+-- --------------------------------------------------
+
+SET QUOTED_IDENTIFIER OFF;
+ 
+USE [xxx];
+ 
+IF SCHEMA_ID(N'dbo') IS NULL EXECUTE(N'CREATE SCHEMA [dbo]');
+ 
+
+-- --------------------------------------------------
+-- Dropping existing FOREIGN KEY constraints
+-- --------------------------------------------------
+
+IF OBJECT_ID(N'[dbo].[FK_AirTicketsSet_PartnersServices]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[AirTicketsSet] DROP CONSTRAINT [FK_AirTicketsSet_PartnersServices];
+ 
+IF OBJECT_ID(N'[dbo].[FK_BankAccountsSet_CompaniesSet]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[BankAccountsSet] DROP CONSTRAINT [FK_BankAccountsSet_CompaniesSet];
+ 
+IF OBJECT_ID(N'[dbo].[FK_CashOperations_CompaniesSet]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[CashOperationsSet] DROP CONSTRAINT [FK_CashOperations_CompaniesSet];
+ 
+IF OBJECT_ID(N'[dbo].[FK_CashOperationsSet_BankAccountsSet]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[CashOperationsSet] DROP CONSTRAINT [FK_CashOperationsSet_BankAccountsSet];
+ 
+IF OBJECT_ID(N'[dbo].[FK_CashOperationsSet_CashOperationsTypesSet]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[CashOperationsSet] DROP CONSTRAINT [FK_CashOperationsSet_CashOperationsTypesSet];
+ 
+IF OBJECT_ID(N'[dbo].[FK_CashOperationsSet_Users]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[CashOperationsSet] DROP CONSTRAINT [FK_CashOperationsSet_Users];
+ 
+IF OBJECT_ID(N'[dbo].[FK_ClientsServises_ClientsSet]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ClientsServices] DROP CONSTRAINT [FK_ClientsServises_ClientsSet];
+ 
+IF OBJECT_ID(N'[dbo].[FK_ClientsServises_ServicesSet]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ClientsServices] DROP CONSTRAINT [FK_ClientsServises_ServicesSet];
+ 
+IF OBJECT_ID(N'[dbo].[FK_CompaniesEalthServices]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[EalthServicesSet] DROP CONSTRAINT [FK_CompaniesEalthServices];
+ 
+IF OBJECT_ID(N'[dbo].[FK_CompaniesIncomeTable]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[IncomeTableSet] DROP CONSTRAINT [FK_CompaniesIncomeTable];
+ 
+IF OBJECT_ID(N'[dbo].[FK_CompanyCashOP_CompanyCashOP]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[CompanyCashOP] DROP CONSTRAINT [FK_CompanyCashOP_CompanyCashOP];
+ 
+IF OBJECT_ID(N'[dbo].[FK_ExpensesSet_PartnersServices]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ExpensesSet] DROP CONSTRAINT [FK_ExpensesSet_PartnersServices];
+ 
+IF OBJECT_ID(N'[dbo].[FK_ExpensesSet_ServicesSet]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ExpensesSet] DROP CONSTRAINT [FK_ExpensesSet_ServicesSet];
+ 
+IF OBJECT_ID(N'[dbo].[FK_HotelsSet_CountriesSet]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[HotelsSet] DROP CONSTRAINT [FK_HotelsSet_CountriesSet];
+ 
+IF OBJECT_ID(N'[dbo].[FK_HotelsSet_PartnersServices]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[HotelsSet] DROP CONSTRAINT [FK_HotelsSet_PartnersServices];
+ 
+IF OBJECT_ID(N'[dbo].[FK_IncomesSet_ServicesSet]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[IncomesSet] DROP CONSTRAINT [FK_IncomesSet_ServicesSet];
+ 
+IF OBJECT_ID(N'[dbo].[FK_PartnersServices_PartnersSet]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PartnersServices] DROP CONSTRAINT [FK_PartnersServices_PartnersSet];
+ 
+IF OBJECT_ID(N'[dbo].[FK_PartnersServices_ServicesSet]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PartnersServices] DROP CONSTRAINT [FK_PartnersServices_ServicesSet];
+ 
+IF OBJECT_ID(N'[dbo].[FK_Permisions_PermissionsTypes]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Permisions] DROP CONSTRAINT [FK_Permisions_PermissionsTypes];
+ 
+IF OBJECT_ID(N'[dbo].[FK_Permisions_Users]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Permisions] DROP CONSTRAINT [FK_Permisions_Users];
+ 
+IF OBJECT_ID(N'[dbo].[FK_ServicesSet_CompaniesSet]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ServicesSet] DROP CONSTRAINT [FK_ServicesSet_CompaniesSet];
+ 
+IF OBJECT_ID(N'[dbo].[FK_ServicesSet_CountriesSet]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ServicesSet] DROP CONSTRAINT [FK_ServicesSet_CountriesSet];
+ 
+IF OBJECT_ID(N'[dbo].[FK_ServicesSet_ServiceTypes1]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ServicesSet] DROP CONSTRAINT [FK_ServicesSet_ServiceTypes1];
+ 
+IF OBJECT_ID(N'[dbo].[FK_ServicesSet_Users]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ServicesSet] DROP CONSTRAINT [FK_ServicesSet_Users];
+ 
+IF OBJECT_ID(N'[dbo].[FK_ToursSet_PartnersServices]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ToursSet] DROP CONSTRAINT [FK_ToursSet_PartnersServices];
+ 
+IF OBJECT_ID(N'[dbo].[FK_TrainTicketsSet_PartnersServices]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[TrainTicketsSet] DROP CONSTRAINT [FK_TrainTicketsSet_PartnersServices];
+ 
+IF OBJECT_ID(N'[dbo].[FK_TransferSet_PartnersServices]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[TransferSet] DROP CONSTRAINT [FK_TransferSet_PartnersServices];
+ 
+IF OBJECT_ID(N'[dbo].[FK_UserButtonsSet_UserType]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[UserButtonsSet] DROP CONSTRAINT [FK_UserButtonsSet_UserType];
+ 
+IF OBJECT_ID(N'[dbo].[FK_UserCompanies_CompaniesSet]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[UserCompanies] DROP CONSTRAINT [FK_UserCompanies_CompaniesSet];
+ 
+IF OBJECT_ID(N'[dbo].[FK_UserCompanies_Users]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[UserCompanies] DROP CONSTRAINT [FK_UserCompanies_Users];
+ 
+IF OBJECT_ID(N'[dbo].[FK_Users_UserType]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Users] DROP CONSTRAINT [FK_Users_UserType];
+ 
+
+-- --------------------------------------------------
+-- Dropping existing tables
+-- --------------------------------------------------
+
+IF OBJECT_ID(N'[dbo].[AirTicketsSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[AirTicketsSet];
+ 
+IF OBJECT_ID(N'[dbo].[BankAccountsSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[BankAccountsSet];
+ 
+IF OBJECT_ID(N'[dbo].[CashOperationsSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[CashOperationsSet];
+ 
+IF OBJECT_ID(N'[dbo].[CashOperationsTypesSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[CashOperationsTypesSet];
+ 
+IF OBJECT_ID(N'[dbo].[ClientsServices]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ClientsServices];
+ 
+IF OBJECT_ID(N'[dbo].[ClientsSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ClientsSet];
+ 
+IF OBJECT_ID(N'[dbo].[CoinExchangesSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[CoinExchangesSet];
+ 
+IF OBJECT_ID(N'[dbo].[CompaniesSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[CompaniesSet];
+ 
+IF OBJECT_ID(N'[dbo].[CompanyCashOP]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[CompanyCashOP];
+ 
+IF OBJECT_ID(N'[dbo].[CountriesSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[CountriesSet];
+ 
+IF OBJECT_ID(N'[dbo].[EalthServicesSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[EalthServicesSet];
+ 
+IF OBJECT_ID(N'[dbo].[ExpensesSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ExpensesSet];
+ 
+IF OBJECT_ID(N'[dbo].[HotelsSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[HotelsSet];
+ 
+IF OBJECT_ID(N'[dbo].[IncomesSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[IncomesSet];
+ 
+IF OBJECT_ID(N'[dbo].[IncomeTableSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[IncomeTableSet];
+ 
+IF OBJECT_ID(N'[dbo].[InventariosSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[InventariosSet];
+ 
+IF OBJECT_ID(N'[dbo].[PartnersServices]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PartnersServices];
+ 
+IF OBJECT_ID(N'[dbo].[PartnersSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PartnersSet];
+ 
+IF OBJECT_ID(N'[dbo].[Permisions]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Permisions];
+ 
+IF OBJECT_ID(N'[dbo].[PermissionsTypes]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PermissionsTypes];
+ 
+IF OBJECT_ID(N'[dbo].[ProductosSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ProductosSet];
+ 
+IF OBJECT_ID(N'[dbo].[PropertiesSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PropertiesSet];
+ 
+IF OBJECT_ID(N'[dbo].[ServicesSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ServicesSet];
+ 
+IF OBJECT_ID(N'[dbo].[ServiceTypes]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ServiceTypes];
+ 
+IF OBJECT_ID(N'[dbo].[sysdiagrams]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[sysdiagrams];
+ 
+IF OBJECT_ID(N'[dbo].[ToursSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ToursSet];
+ 
+IF OBJECT_ID(N'[dbo].[TrainTicketsSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[TrainTicketsSet];
+ 
+IF OBJECT_ID(N'[dbo].[TransferSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[TransferSet];
+ 
+IF OBJECT_ID(N'[dbo].[UserButtonsSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[UserButtonsSet];
+ 
+IF OBJECT_ID(N'[dbo].[UserCompanies]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[UserCompanies];
+ 
+IF OBJECT_ID(N'[dbo].[Users]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Users];
+ 
+IF OBJECT_ID(N'[dbo].[UserType]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[UserType];
+ 
+
+-- --------------------------------------------------
+-- Creating all tables
+-- --------------------------------------------------
+
+-- Creating table 'AirTicketsSet'
+CREATE TABLE [dbo].[AirTicketsSet] (
+    [AirTicketId] int IDENTITY(1,1) NOT NULL,
+    [TicketName] nvarchar(max)  NOT NULL,
+    [CreationDate] datetime  NOT NULL,
+    [PartnerServiceId] int  NOT NULL,
+    [NetPrice] decimal(18,0)  NOT NULL,
+    [Brutprice] decimal(18,0)  NOT NULL,
+    [OfferPrice] decimal(18,0)  NOT NULL,
+    [OfferSpan] datetime  NOT NULL,
+    [OutDate] datetime  NOT NULL,
+    [BrutPriceSpan] datetime  NOT NULL,
+    [Code] decimal(18,0)  NOT NULL,
+    [DepartTime] datetime  NOT NULL,
+    [ArriveTime] datetime  NOT NULL,
+    [Route] nvarchar(max)  NOT NULL,
+    [DepartPlace] nvarchar(max)  NOT NULL,
+    [ArrivePlace] nvarchar(max)  NOT NULL,
+    [ConfortClass] nvarchar(max)  NOT NULL,
+    [Number] decimal(18,0)  NOT NULL,
+    [Details] nvarchar(max)  NOT NULL,
+    [Type] nvarchar(max)  NOT NULL
+);
+ 
+
+-- Creating table 'ClientsServices'
+CREATE TABLE [dbo].[ClientsServices] (
+    [ClientsServicesId] int IDENTITY(1,1) NOT NULL,
+    [Clientid] int  NOT NULL,
+    [ServiceId] int  NOT NULL,
+    [IsPayer] bit  NOT NULL
+);
+ 
+
+-- Creating table 'CoinExchangesSet'
+CREATE TABLE [dbo].[CoinExchangesSet] (
+    [ExchangeId] int IDENTITY(1,1) NOT NULL,
+    [IntUSDChange] nvarchar(max)  NOT NULL,
+    [ExtEURChange] nvarchar(max)  NOT NULL,
+    [AddedPercent] nvarchar(max)  NOT NULL,
+    [AddedValue] nvarchar(max)  NOT NULL
+);
+ 
+
+-- Creating table 'CompaniesSet'
+CREATE TABLE [dbo].[CompaniesSet] (
+    [CompanyId] int IDENTITY(1,1) NOT NULL,
+    [CompanyName] nvarchar(max)  NOT NULL,
+    [VisualProp] nvarchar(max)  NOT NULL,
+    [LogoAdress] nvarchar(max)  NOT NULL,
+    [Color] nvarchar(max)  NOT NULL,
+    [CompanyAdress] nvarchar(max)  NOT NULL
+);
+ 
+
+-- Creating table 'CountriesSet'
+CREATE TABLE [dbo].[CountriesSet] (
+    [CountryId] int IDENTITY(1,1) NOT NULL,
+    [CountryName] nvarchar(max)  NOT NULL,
+    [CountryCode] nvarchar(max)  NOT NULL,
+    [EnglishName] nvarchar(max)  NULL,
+    [SpanishName] nvarchar(max)  NULL,
+    [RussianName] nvarchar(max)  NULL
+);
+ 
+
+-- Creating table 'EalthServicesSet'
+CREATE TABLE [dbo].[EalthServicesSet] (
+    [EalthServiceId] int IDENTITY(1,1) NOT NULL,
+    [EalthServiceName] nvarchar(max)  NOT NULL,
+    [CreationDate] nvarchar(max)  NOT NULL,
+    [Partner] nvarchar(max)  NOT NULL,
+    [Netprice] nvarchar(max)  NOT NULL,
+    [BrutPrice] nvarchar(max)  NOT NULL,
+    [OfferPrice] nvarchar(max)  NOT NULL,
+    [OfferpriceSpan] nvarchar(max)  NOT NULL,
+    [BrutOfferSpan] nvarchar(max)  NOT NULL,
+    [Number] nvarchar(max)  NOT NULL,
+    [CompanyId] int  NOT NULL
+);
+ 
+
+-- Creating table 'ExpensesSet'
+CREATE TABLE [dbo].[ExpensesSet] (
+    [PartnerServicesID] int  NOT NULL,
+    [ExpenseId] int IDENTITY(1,1) NOT NULL,
+    [FactDate] datetime  NOT NULL,
+    [Value] decimal(18,0)  NOT NULL,
+    [CoinExange] decimal(18,0)  NOT NULL,
+    [BankPaid] bit  NOT NULL,
+    [Details] nvarchar(max)  NOT NULL
+);
+ 
+
+-- Creating table 'HotelsSet'
+CREATE TABLE [dbo].[HotelsSet] (
+    [HotelId] int  NOT NULL,
+    [Hotelname] nvarchar(max)  NOT NULL,
+    [CreationDate] datetime  NOT NULL,
+    [ServicesPartnerId] int  NOT NULL,
+    [Netprice] decimal(18,0)  NULL,
+    [BrutPrice] decimal(18,0)  NULL,
+    [OfferPrice] decimal(18,0)  NULL,
+    [OfferStartdate] datetime  NULL,
+    [OfferEndDate] datetime  NULL,
+    [CountryId] int  NOT NULL,
+    [City] nvarchar(max)  NULL,
+    [Room] nvarchar(max)  NULL,
+    [Food] nvarchar(max)  NULL,
+    [CheckinDate] datetime  NULL,
+    [CheckOutdate] datetime  NULL,
+    [Nights] int  NULL,
+    [HotelCat] int  NULL,
+    [HotelCode] nvarchar(max)  NULL,
+    [HotelDetails] nvarchar(max)  NULL,
+    [Type] nchar(10)  NULL
+);
+ 
+
+-- Creating table 'IncomesSet'
+CREATE TABLE [dbo].[IncomesSet] (
+    [IncomeId] int IDENTITY(1,1) NOT NULL,
+    [ServiceId] int  NOT NULL,
+    [FactDate] datetime  NOT NULL,
+    [Value] decimal(18,0)  NOT NULL,
+    [CoinExchange] decimal(18,0)  NOT NULL,
+    [IsBankPaid] bit  NOT NULL,
+    [Details] nvarchar(max)  NOT NULL
+);
+ 
+
+-- Creating table 'IncomeTableSet'
+CREATE TABLE [dbo].[IncomeTableSet] (
+    [IncomeTableId] int IDENTITY(1,1) NOT NULL,
+    [IncomeTableName] nvarchar(max)  NOT NULL,
+    [User] nvarchar(max)  NOT NULL,
+    [Service] nvarchar(max)  NOT NULL,
+    [GraphType] nvarchar(max)  NOT NULL,
+    [Expense] nvarchar(max)  NOT NULL,
+    [Date] nvarchar(max)  NOT NULL,
+    [DocType] nvarchar(max)  NOT NULL,
+    [ExpectedIncome] nvarchar(max)  NOT NULL,
+    [RealIncome] nvarchar(max)  NOT NULL,
+    [Plannedincome] nvarchar(max)  NOT NULL,
+    [CompaniesCompanyId] int  NOT NULL
+);
+ 
+
+-- Creating table 'InventariosSet'
+CREATE TABLE [dbo].[InventariosSet] (
+    [ItemId] int IDENTITY(1,1) NOT NULL,
+    [ItemName] nvarchar(max)  NOT NULL,
+    [ItemCode] nvarchar(max)  NOT NULL,
+    [Price] nvarchar(max)  NOT NULL,
+    [Amount] nvarchar(max)  NOT NULL,
+    [FabDate] nvarchar(max)  NOT NULL,
+    [EntryDate] nvarchar(max)  NOT NULL,
+    [Brand] nvarchar(max)  NOT NULL
+);
+ 
+
+-- Creating table 'PartnersServices'
+CREATE TABLE [dbo].[PartnersServices] (
+    [PartnersServicesID] int IDENTITY(1,1) NOT NULL,
+    [PartnerId] int  NOT NULL,
+    [ServiceId] int  NOT NULL
+);
+ 
+
+-- Creating table 'PartnersSet'
+CREATE TABLE [dbo].[PartnersSet] (
+    [PartnerId] int IDENTITY(1,1) NOT NULL,
+    [RealAdress] nvarchar(max)  NULL,
+    [LawAdress] nvarchar(max)  NULL,
+    [Phone] nvarchar(max)  NULL,
+    [Email] nvarchar(max)  NULL,
+    [FinacialValue] decimal(18,0)  NULL,
+    [RegNumber] nvarchar(max)  NULL,
+    [Nombramiento] nvarchar(max)  NULL,
+    [ContractDate] datetime  NULL,
+    [PartnerName] nvarchar(max)  NOT NULL,
+    [FundingTimeLimit] datetime  NULL,
+    [OrganizationLocation] nvarchar(max)  NULL,
+    [OrganizationPostalCode] nvarchar(max)  NULL,
+    [ContractNumber] nvarchar(max)  NULL,
+    [Extra1] nvarchar(max)  NULL,
+    [Extra2] nvarchar(max)  NULL,
+    [Extra3] decimal(18,0)  NULL,
+    [Extra4] datetime  NULL,
+    [NickName] nvarchar(max)  NOT NULL,
+    [Isprovider] bit  NULL,
+    [Iscreditor] bit  NULL,
+    [Notes] nvarchar(max)  NULL,
+    [IsActive] bit  NOT NULL
+);
+ 
+
+-- Creating table 'Permisions'
+CREATE TABLE [dbo].[Permisions] (
+    [UserPermissionsID] int IDENTITY(1,1) NOT NULL,
+    [UserID] int  NOT NULL,
+    [PermissionsTypeID] int  NOT NULL
+);
+ 
+
+-- Creating table 'PermissionsTypes'
+CREATE TABLE [dbo].[PermissionsTypes] (
+    [PermissionsTypesID] int IDENTITY(1,1) NOT NULL,
+    [IsUserID] bit  NOT NULL,
+    [PermissionTypeName] nvarchar(max)  NOT NULL,
+    [PermisionValue] int  NULL
+);
+ 
+
+-- Creating table 'ProductosSet'
+CREATE TABLE [dbo].[ProductosSet] (
+    [ProductoId] int IDENTITY(1,1) NOT NULL,
+    [ProductoName] nvarchar(max)  NOT NULL,
+    [PriceinRub] nvarchar(max)  NOT NULL,
+    [USDprice] nvarchar(max)  NOT NULL,
+    [EURPrice] nvarchar(max)  NOT NULL,
+    [EntryDate] nvarchar(max)  NOT NULL,
+    [PriceSpan] nvarchar(max)  NOT NULL,
+    [priceSpanOffer] nvarchar(max)  NOT NULL,
+    [IsIndividual] nvarchar(max)  NOT NULL,
+    [ProductTime] nvarchar(max)  NOT NULL,
+    [Place] nvarchar(max)  NOT NULL,
+    [Details] nvarchar(max)  NOT NULL
+);
+ 
+
+-- Creating table 'PropertiesSet'
+CREATE TABLE [dbo].[PropertiesSet] (
+    [PropertyId] int IDENTITY(1,1) NOT NULL,
+    [PropertyName] nvarchar(max)  NOT NULL,
+    [PropertyType] nvarchar(max)  NOT NULL,
+    [Code] nvarchar(max)  NOT NULL,
+    [Value] nvarchar(max)  NOT NULL,
+    [Details] nvarchar(max)  NOT NULL,
+    [User] nvarchar(max)  NOT NULL,
+    [Company] nvarchar(max)  NOT NULL
+);
+ 
+
+-- Creating table 'ServicesSet'
+CREATE TABLE [dbo].[ServicesSet] (
+    [ServiceId] int IDENTITY(1,1) NOT NULL,
+    [Servicename] nvarchar(max)  NOT NULL,
+    [SeviceTypeID] int  NOT NULL,
+    [CompanyID] int  NOT NULL,
+    [NetPrice] decimal(18,0)  NOT NULL,
+    [PrecioBruto] decimal(18,0)  NOT NULL,
+    [CreationDate] datetime  NOT NULL,
+    [Specs] nvarchar(max)  NOT NULL,
+    [Comission] nvarchar(max)  NOT NULL,
+    [FromDate] datetime  NOT NULL,
+    [ToDate] datetime  NOT NULL,
+    [UserId] int  NOT NULL,
+    [CountryId] int  NULL
+);
+ 
+
+-- Creating table 'ServiceTypes'
+CREATE TABLE [dbo].[ServiceTypes] (
+    [ServiceTypeID] int IDENTITY(1,1) NOT NULL,
+    [ServiceType] nvarchar(max)  NOT NULL
+);
+ 
+
+-- Creating table 'sysdiagrams'
+CREATE TABLE [dbo].[sysdiagrams] (
+    [name] nvarchar(128)  NOT NULL,
+    [principal_id] int  NOT NULL,
+    [diagram_id] int IDENTITY(1,1) NOT NULL,
+    [version] int  NULL,
+    [definition] varbinary(max)  NULL
+);
+ 
+
+-- Creating table 'ToursSet'
+CREATE TABLE [dbo].[ToursSet] (
+    [TourId] int IDENTITY(1,1) NOT NULL,
+    [TourName] nvarchar(max)  NOT NULL,
+    [CreationDate] datetime  NOT NULL,
+    [PartnersServiceId] int  NOT NULL,
+    [NetPrice] decimal(18,0)  NULL,
+    [Brutprice] decimal(18,0)  NULL,
+    [OfferPrice] decimal(18,0)  NULL,
+    [OfferSpan] datetime  NULL,
+    [OutDate] datetime  NULL,
+    [BrutPriceSpan] datetime  NULL,
+    [Code] nvarchar(max)  NULL,
+    [DepartTime] datetime  NULL,
+    [ArriveTime] datetime  NULL,
+    [Route] nvarchar(max)  NULL,
+    [DepartPlace] nvarchar(max)  NULL,
+    [ArrivePlace] nvarchar(max)  NULL,
+    [ConfortClass] nvarchar(max)  NULL,
+    [Number] nvarchar(max)  NULL,
+    [Details] nvarchar(max)  NULL,
+    [Type] nvarchar(max)  NULL,
+    [Isguided] bit  NULL,
+    [Transport1] nvarchar(max)  NULL,
+    [Transport2] nvarchar(max)  NULL,
+    [TouristCount] int  NULL
+);
+ 
+
+-- Creating table 'TrainTicketsSet'
+CREATE TABLE [dbo].[TrainTicketsSet] (
+    [TrainTicketId] int IDENTITY(1,1) NOT NULL,
+    [Name] nvarchar(max)  NOT NULL,
+    [CreationDate] datetime  NOT NULL,
+    [NetPrice] decimal(18,0)  NULL,
+    [Brutprice] decimal(18,0)  NULL,
+    [OfferPrice] decimal(18,0)  NULL,
+    [OfferSpan] datetime  NULL,
+    [OutDate] datetime  NULL,
+    [BrutPriceSpan] datetime  NULL,
+    [Code] nvarchar(max)  NULL,
+    [DepartTime] datetime  NULL,
+    [ArriveTime] datetime  NULL,
+    [Route] nvarchar(max)  NULL,
+    [DepartPlace] nvarchar(max)  NULL,
+    [ArrivePlace] nvarchar(max)  NULL,
+    [ConfortClass] nvarchar(max)  NULL,
+    [Number] nvarchar(max)  NULL,
+    [Details] nvarchar(max)  NULL,
+    [Type] nvarchar(max)  NULL,
+    [PartnerServiceId] int  NOT NULL,
+    [TouristCount] int  NULL
+);
+ 
+
+-- Creating table 'TransferSet'
+CREATE TABLE [dbo].[TransferSet] (
+    [TransferId] int IDENTITY(1,1) NOT NULL,
+    [TransferName] nvarchar(max)  NOT NULL,
+    [CreationDate] datetime  NOT NULL,
+    [NetPrice] decimal(18,0)  NULL,
+    [Brutprice] decimal(18,0)  NULL,
+    [OfferPrice] decimal(18,0)  NULL,
+    [OfferSpan] datetime  NULL,
+    [OutDate] datetime  NULL,
+    [BrutPriceSpan] datetime  NULL,
+    [Code] nvarchar(max)  NULL,
+    [DepartTime] datetime  NULL,
+    [ArriveTime] datetime  NULL,
+    [Route] nvarchar(max)  NULL,
+    [DepartPlace] nvarchar(max)  NULL,
+    [ArrivePlace] nvarchar(max)  NULL,
+    [ConfortClass] nvarchar(max)  NULL,
+    [Number] nvarchar(max)  NULL,
+    [Details] nvarchar(max)  NULL,
+    [Type] nvarchar(max)  NULL,
+    [PartnerServiceId] int  NOT NULL
+);
+ 
+
+-- Creating table 'UserButtonsSet'
+CREATE TABLE [dbo].[UserButtonsSet] (
+    [ButtonsId] int IDENTITY(1,1) NOT NULL,
+    [Name] nvarchar(max)  NOT NULL,
+    [UsertypeID] int  NOT NULL,
+    [IconId] nvarchar(max)  NOT NULL
+);
+ 
+
+-- Creating table 'UserCompanies'
+CREATE TABLE [dbo].[UserCompanies] (
+    [UserCompanyID] int IDENTITY(1,1) NOT NULL,
+    [CompaniID] int  NOT NULL,
+    [UserID] int  NOT NULL,
+    [Active] bit  NOT NULL
+);
+ 
+
+-- Creating table 'Users'
+CREATE TABLE [dbo].[Users] (
+    [UserID] int IDENTITY(1,1) NOT NULL,
+    [Name] nvarchar(max)  NOT NULL,
+    [LastName] nvarchar(max)  NOT NULL,
+    [Notes] nvarchar(max)  NOT NULL,
+    [UserTypeID] int  NOT NULL,
+    [Login] nvarchar(max)  NOT NULL,
+    [Password] binary(50)  NOT NULL,
+    [Email] nvarchar(max)  NOT NULL,
+    [ActiveUser] bit  NOT NULL
+);
+ 
+
+-- Creating table 'UserType'
+CREATE TABLE [dbo].[UserType] (
+    [UserTypeID] int IDENTITY(1,1) NOT NULL,
+    [UserTypeName] nvarchar(max)  NOT NULL
+);
+ 
+
+-- Creating table 'ClientsSet'
+CREATE TABLE [dbo].[ClientsSet] (
+    [ClientId] int IDENTITY(1,1) NOT NULL,
+    [IDName] nvarchar(max)  NOT NULL,
+    [IDNumber] nvarchar(max)  NOT NULL,
+    [BirthDate] datetime  NULL,
+    [Gender] bit  NULL,
+    [Phone] nvarchar(max)  NULL,
+    [Email] nvarchar(max)  NULL,
+    [VisaLimit] datetime  NULL,
+    [Adress] nvarchar(max)  NULL,
+    [ExtPassportName] nvarchar(max)  NULL,
+    [BirthPlace] nvarchar(max)  NULL,
+    [ExtPassportNumber] nvarchar(max)  NULL,
+    [ExtpassportExpDate] datetime  NULL,
+    [Extra1] nvarchar(max)  NULL,
+    [Extra2] nvarchar(max)  NULL,
+    [Extra3] decimal(18,0)  NULL,
+    [Notes] nvarchar(max)  NULL,
+    [IsActive] bit  NOT NULL,
+    [Serial] nvarchar(max)  NULL,
+    [Extra4] datetime  NULL,
+    [HasEmail] bit  NULL,
+    [CitizenShip] nvarchar(max)  NULL
+);
+ 
+
+-- Creating table 'CashOperationsTypesSet'
+CREATE TABLE [dbo].[CashOperationsTypesSet] (
+    [CashOpTypesId] int IDENTITY(1,1) NOT NULL,
+    [CashOPTypeName] nvarchar(max)  NOT NULL
+);
+ 
+
+-- Creating table 'CashOperationsSet'
+CREATE TABLE [dbo].[CashOperationsSet] (
+    [CashOPId] int IDENTITY(1,1) NOT NULL,
+    [CashOPDate] datetime  NOT NULL,
+    [Value] decimal(18,0)  NOT NULL,
+    [Details] nvarchar(max)  NULL,
+    [IsBank] bit  NOT NULL,
+    [IsIncome] bit  NOT NULL,
+    [CompanyId] int  NOT NULL,
+    [UserId] int  NOT NULL,
+    [CashOPTypeId] int  NOT NULL,
+    [AccountId] int  NOT NULL
+);
+ 
+
+-- Creating table 'CompanyCashOP'
+CREATE TABLE [dbo].[CompanyCashOP] (
+    [CashOPId] int IDENTITY(1,1) NOT NULL,
+    [CashOPDate] nvarchar(max)  NOT NULL,
+    [Value] nvarchar(max)  NOT NULL,
+    [Details] nvarchar(max)  NOT NULL,
+    [CashValue] nvarchar(max)  NOT NULL,
+    [BankValue] nvarchar(max)  NOT NULL,
+    [debtsToPay] nvarchar(max)  NOT NULL,
+    [DebtsToRecieve] nvarchar(max)  NOT NULL,
+    [InventValue] nvarchar(max)  NOT NULL
+);
+ 
+
+-- Creating table 'BankAccountsSet'
+CREATE TABLE [dbo].[BankAccountsSet] (
+    [AcccountId] int IDENTITY(1,1) NOT NULL,
+    [AccountName] nvarchar(max)  NOT NULL,
+    [CompanyId] int  NOT NULL,
+    [AccountNumber] nvarchar(max)  NULL,
+    [AccountValue] decimal(18,0)  NULL
+);
+ 
+
+-- --------------------------------------------------
+-- Creating all PRIMARY KEY constraints
+-- --------------------------------------------------
+
+-- Creating primary key on [AirTicketId] in table 'AirTicketsSet'
+ALTER TABLE [dbo].[AirTicketsSet]
+ADD CONSTRAINT [PK_AirTicketsSet]
+    PRIMARY KEY CLUSTERED ([AirTicketId] ASC);
+ 
+
+-- Creating primary key on [ClientsServicesId] in table 'ClientsServices'
+ALTER TABLE [dbo].[ClientsServices]
+ADD CONSTRAINT [PK_ClientsServices]
+    PRIMARY KEY CLUSTERED ([ClientsServicesId] ASC);
+ 
+
+-- Creating primary key on [ExchangeId] in table 'CoinExchangesSet'
+ALTER TABLE [dbo].[CoinExchangesSet]
+ADD CONSTRAINT [PK_CoinExchangesSet]
+    PRIMARY KEY CLUSTERED ([ExchangeId] ASC);
+ 
+
+-- Creating primary key on [CompanyId] in table 'CompaniesSet'
+ALTER TABLE [dbo].[CompaniesSet]
+ADD CONSTRAINT [PK_CompaniesSet]
+    PRIMARY KEY CLUSTERED ([CompanyId] ASC);
+ 
+
+-- Creating primary key on [CountryId] in table 'CountriesSet'
+ALTER TABLE [dbo].[CountriesSet]
+ADD CONSTRAINT [PK_CountriesSet]
+    PRIMARY KEY CLUSTERED ([CountryId] ASC);
+ 
+
+-- Creating primary key on [EalthServiceId] in table 'EalthServicesSet'
+ALTER TABLE [dbo].[EalthServicesSet]
+ADD CONSTRAINT [PK_EalthServicesSet]
+    PRIMARY KEY CLUSTERED ([EalthServiceId] ASC);
+ 
+
+-- Creating primary key on [ExpenseId] in table 'ExpensesSet'
+ALTER TABLE [dbo].[ExpensesSet]
+ADD CONSTRAINT [PK_ExpensesSet]
+    PRIMARY KEY CLUSTERED ([ExpenseId] ASC);
+ 
+
+-- Creating primary key on [HotelId] in table 'HotelsSet'
+ALTER TABLE [dbo].[HotelsSet]
+ADD CONSTRAINT [PK_HotelsSet]
+    PRIMARY KEY CLUSTERED ([HotelId] ASC);
+ 
+
+-- Creating primary key on [IncomeId] in table 'IncomesSet'
+ALTER TABLE [dbo].[IncomesSet]
+ADD CONSTRAINT [PK_IncomesSet]
+    PRIMARY KEY CLUSTERED ([IncomeId] ASC);
+ 
+
+-- Creating primary key on [IncomeTableId] in table 'IncomeTableSet'
+ALTER TABLE [dbo].[IncomeTableSet]
+ADD CONSTRAINT [PK_IncomeTableSet]
+    PRIMARY KEY CLUSTERED ([IncomeTableId] ASC);
+ 
+
+-- Creating primary key on [ItemId] in table 'InventariosSet'
+ALTER TABLE [dbo].[InventariosSet]
+ADD CONSTRAINT [PK_InventariosSet]
+    PRIMARY KEY CLUSTERED ([ItemId] ASC);
+ 
+
+-- Creating primary key on [PartnersServicesID] in table 'PartnersServices'
+ALTER TABLE [dbo].[PartnersServices]
+ADD CONSTRAINT [PK_PartnersServices]
+    PRIMARY KEY CLUSTERED ([PartnersServicesID] ASC);
+ 
+
+-- Creating primary key on [PartnerId] in table 'PartnersSet'
+ALTER TABLE [dbo].[PartnersSet]
+ADD CONSTRAINT [PK_PartnersSet]
+    PRIMARY KEY CLUSTERED ([PartnerId] ASC);
+ 
+
+-- Creating primary key on [UserPermissionsID] in table 'Permisions'
+ALTER TABLE [dbo].[Permisions]
+ADD CONSTRAINT [PK_Permisions]
+    PRIMARY KEY CLUSTERED ([UserPermissionsID] ASC);
+ 
+
+-- Creating primary key on [PermissionsTypesID] in table 'PermissionsTypes'
+ALTER TABLE [dbo].[PermissionsTypes]
+ADD CONSTRAINT [PK_PermissionsTypes]
+    PRIMARY KEY CLUSTERED ([PermissionsTypesID] ASC);
+ 
+
+-- Creating primary key on [ProductoId] in table 'ProductosSet'
+ALTER TABLE [dbo].[ProductosSet]
+ADD CONSTRAINT [PK_ProductosSet]
+    PRIMARY KEY CLUSTERED ([ProductoId] ASC);
+ 
+
+-- Creating primary key on [PropertyId] in table 'PropertiesSet'
+ALTER TABLE [dbo].[PropertiesSet]
+ADD CONSTRAINT [PK_PropertiesSet]
+    PRIMARY KEY CLUSTERED ([PropertyId] ASC);
+ 
+
+-- Creating primary key on [ServiceId] in table 'ServicesSet'
+ALTER TABLE [dbo].[ServicesSet]
+ADD CONSTRAINT [PK_ServicesSet]
+    PRIMARY KEY CLUSTERED ([ServiceId] ASC);
+ 
+
+-- Creating primary key on [ServiceTypeID] in table 'ServiceTypes'
+ALTER TABLE [dbo].[ServiceTypes]
+ADD CONSTRAINT [PK_ServiceTypes]
+    PRIMARY KEY CLUSTERED ([ServiceTypeID] ASC);
+ 
+
+-- Creating primary key on [diagram_id] in table 'sysdiagrams'
+ALTER TABLE [dbo].[sysdiagrams]
+ADD CONSTRAINT [PK_sysdiagrams]
+    PRIMARY KEY CLUSTERED ([diagram_id] ASC);
+ 
+
+-- Creating primary key on [TourId] in table 'ToursSet'
+ALTER TABLE [dbo].[ToursSet]
+ADD CONSTRAINT [PK_ToursSet]
+    PRIMARY KEY CLUSTERED ([TourId] ASC);
+ 
+
+-- Creating primary key on [TrainTicketId] in table 'TrainTicketsSet'
+ALTER TABLE [dbo].[TrainTicketsSet]
+ADD CONSTRAINT [PK_TrainTicketsSet]
+    PRIMARY KEY CLUSTERED ([TrainTicketId] ASC);
+ 
+
+-- Creating primary key on [TransferId] in table 'TransferSet'
+ALTER TABLE [dbo].[TransferSet]
+ADD CONSTRAINT [PK_TransferSet]
+    PRIMARY KEY CLUSTERED ([TransferId] ASC);
+ 
+
+-- Creating primary key on [ButtonsId] in table 'UserButtonsSet'
+ALTER TABLE [dbo].[UserButtonsSet]
+ADD CONSTRAINT [PK_UserButtonsSet]
+    PRIMARY KEY CLUSTERED ([ButtonsId] ASC);
+ 
+
+-- Creating primary key on [UserCompanyID] in table 'UserCompanies'
+ALTER TABLE [dbo].[UserCompanies]
+ADD CONSTRAINT [PK_UserCompanies]
+    PRIMARY KEY CLUSTERED ([UserCompanyID] ASC);
+ 
+
+-- Creating primary key on [UserID] in table 'Users'
+ALTER TABLE [dbo].[Users]
+ADD CONSTRAINT [PK_Users]
+    PRIMARY KEY CLUSTERED ([UserID] ASC);
+ 
+
+-- Creating primary key on [UserTypeID] in table 'UserType'
+ALTER TABLE [dbo].[UserType]
+ADD CONSTRAINT [PK_UserType]
+    PRIMARY KEY CLUSTERED ([UserTypeID] ASC);
+ 
+
+-- Creating primary key on [ClientId] in table 'ClientsSet'
+ALTER TABLE [dbo].[ClientsSet]
+ADD CONSTRAINT [PK_ClientsSet]
+    PRIMARY KEY CLUSTERED ([ClientId] ASC);
+ 
+
+-- Creating primary key on [CashOpTypesId] in table 'CashOperationsTypesSet'
+ALTER TABLE [dbo].[CashOperationsTypesSet]
+ADD CONSTRAINT [PK_CashOperationsTypesSet]
+    PRIMARY KEY CLUSTERED ([CashOpTypesId] ASC);
+ 
+
+-- Creating primary key on [CashOPId] in table 'CashOperationsSet'
+ALTER TABLE [dbo].[CashOperationsSet]
+ADD CONSTRAINT [PK_CashOperationsSet]
+    PRIMARY KEY CLUSTERED ([CashOPId] ASC);
+ 
+
+-- Creating primary key on [CashOPId] in table 'CompanyCashOP'
+ALTER TABLE [dbo].[CompanyCashOP]
+ADD CONSTRAINT [PK_CompanyCashOP]
+    PRIMARY KEY CLUSTERED ([CashOPId] ASC);
+ 
+
+-- Creating primary key on [AcccountId] in table 'BankAccountsSet'
+ALTER TABLE [dbo].[BankAccountsSet]
+ADD CONSTRAINT [PK_BankAccountsSet]
+    PRIMARY KEY CLUSTERED ([AcccountId] ASC);
+ 
+
+-- --------------------------------------------------
+-- Creating all FOREIGN KEY constraints
+-- --------------------------------------------------
+
+-- Creating foreign key on [PartnerServiceId] in table 'AirTicketsSet'
+ALTER TABLE [dbo].[AirTicketsSet]
+ADD CONSTRAINT [FK_AirTicketsSet_PartnersServices]
+    FOREIGN KEY ([PartnerServiceId])
+    REFERENCES [dbo].[PartnersServices]
+        ([PartnersServicesID])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+ 
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_AirTicketsSet_PartnersServices'
+CREATE INDEX [IX_FK_AirTicketsSet_PartnersServices]
+ON [dbo].[AirTicketsSet]
+    ([PartnerServiceId]);
+ 
+
+-- Creating foreign key on [ServiceId] in table 'ClientsServices'
+ALTER TABLE [dbo].[ClientsServices]
+ADD CONSTRAINT [FK_ClientsServises_ServicesSet]
+    FOREIGN KEY ([ServiceId])
+    REFERENCES [dbo].[ServicesSet]
+        ([ServiceId])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+ 
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_ClientsServises_ServicesSet'
+CREATE INDEX [IX_FK_ClientsServises_ServicesSet]
+ON [dbo].[ClientsServices]
+    ([ServiceId]);
+ 
+
+-- Creating foreign key on [CompanyId] in table 'EalthServicesSet'
+ALTER TABLE [dbo].[EalthServicesSet]
+ADD CONSTRAINT [FK_CompaniesEalthServices]
+    FOREIGN KEY ([CompanyId])
+    REFERENCES [dbo].[CompaniesSet]
+        ([CompanyId])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+ 
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_CompaniesEalthServices'
+CREATE INDEX [IX_FK_CompaniesEalthServices]
+ON [dbo].[EalthServicesSet]
+    ([CompanyId]);
+ 
+
+-- Creating foreign key on [CompaniesCompanyId] in table 'IncomeTableSet'
+ALTER TABLE [dbo].[IncomeTableSet]
+ADD CONSTRAINT [FK_CompaniesIncomeTable]
+    FOREIGN KEY ([CompaniesCompanyId])
+    REFERENCES [dbo].[CompaniesSet]
+        ([CompanyId])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+ 
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_CompaniesIncomeTable'
+CREATE INDEX [IX_FK_CompaniesIncomeTable]
+ON [dbo].[IncomeTableSet]
+    ([CompaniesCompanyId]);
+ 
+
+-- Creating foreign key on [CompanyID] in table 'ServicesSet'
+ALTER TABLE [dbo].[ServicesSet]
+ADD CONSTRAINT [FK_ServicesSet_CompaniesSet]
+    FOREIGN KEY ([CompanyID])
+    REFERENCES [dbo].[CompaniesSet]
+        ([CompanyId])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+ 
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_ServicesSet_CompaniesSet'
+CREATE INDEX [IX_FK_ServicesSet_CompaniesSet]
+ON [dbo].[ServicesSet]
+    ([CompanyID]);
+ 
+
+-- Creating foreign key on [CompaniID] in table 'UserCompanies'
+ALTER TABLE [dbo].[UserCompanies]
+ADD CONSTRAINT [FK_UserCompanies_CompaniesSet]
+    FOREIGN KEY ([CompaniID])
+    REFERENCES [dbo].[CompaniesSet]
+        ([CompanyId])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+ 
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_UserCompanies_CompaniesSet'
+CREATE INDEX [IX_FK_UserCompanies_CompaniesSet]
+ON [dbo].[UserCompanies]
+    ([CompaniID]);
+ 
+
+-- Creating foreign key on [CountryId] in table 'HotelsSet'
+ALTER TABLE [dbo].[HotelsSet]
+ADD CONSTRAINT [FK_HotelsSet_CountriesSet]
+    FOREIGN KEY ([CountryId])
+    REFERENCES [dbo].[CountriesSet]
+        ([CountryId])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+ 
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_HotelsSet_CountriesSet'
+CREATE INDEX [IX_FK_HotelsSet_CountriesSet]
+ON [dbo].[HotelsSet]
+    ([CountryId]);
+ 
+
+-- Creating foreign key on [CountryId] in table 'ServicesSet'
+ALTER TABLE [dbo].[ServicesSet]
+ADD CONSTRAINT [FK_ServicesSet_CountriesSet]
+    FOREIGN KEY ([CountryId])
+    REFERENCES [dbo].[CountriesSet]
+        ([CountryId])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+ 
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_ServicesSet_CountriesSet'
+CREATE INDEX [IX_FK_ServicesSet_CountriesSet]
+ON [dbo].[ServicesSet]
+    ([CountryId]);
+ 
+
+-- Creating foreign key on [PartnerServicesID] in table 'ExpensesSet'
+ALTER TABLE [dbo].[ExpensesSet]
+ADD CONSTRAINT [FK_ExpensesSet_PartnersServices]
+    FOREIGN KEY ([PartnerServicesID])
+    REFERENCES [dbo].[PartnersServices]
+        ([PartnersServicesID])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+ 
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_ExpensesSet_PartnersServices'
+CREATE INDEX [IX_FK_ExpensesSet_PartnersServices]
+ON [dbo].[ExpensesSet]
+    ([PartnerServicesID]);
+ 
+
+-- Creating foreign key on [PartnerServicesID] in table 'ExpensesSet'
+ALTER TABLE [dbo].[ExpensesSet]
+ADD CONSTRAINT [FK_ExpensesSet_ServicesSet]
+    FOREIGN KEY ([PartnerServicesID])
+    REFERENCES [dbo].[ServicesSet]
+        ([ServiceId])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+ 
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_ExpensesSet_ServicesSet'
+CREATE INDEX [IX_FK_ExpensesSet_ServicesSet]
+ON [dbo].[ExpensesSet]
+    ([PartnerServicesID]);
+ 
+
+-- Creating foreign key on [ServicesPartnerId] in table 'HotelsSet'
+ALTER TABLE [dbo].[HotelsSet]
+ADD CONSTRAINT [FK_HotelsSet_PartnersServices]
+    FOREIGN KEY ([ServicesPartnerId])
+    REFERENCES [dbo].[PartnersServices]
+        ([PartnersServicesID])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+ 
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_HotelsSet_PartnersServices'
+CREATE INDEX [IX_FK_HotelsSet_PartnersServices]
+ON [dbo].[HotelsSet]
+    ([ServicesPartnerId]);
+ 
+
+-- Creating foreign key on [ServiceId] in table 'IncomesSet'
+ALTER TABLE [dbo].[IncomesSet]
+ADD CONSTRAINT [FK_IncomesSet_ServicesSet]
+    FOREIGN KEY ([ServiceId])
+    REFERENCES [dbo].[ServicesSet]
+        ([ServiceId])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+ 
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_IncomesSet_ServicesSet'
+CREATE INDEX [IX_FK_IncomesSet_ServicesSet]
+ON [dbo].[IncomesSet]
+    ([ServiceId]);
+ 
+
+-- Creating foreign key on [PartnerId] in table 'PartnersServices'
+ALTER TABLE [dbo].[PartnersServices]
+ADD CONSTRAINT [FK_PartnersServices_PartnersSet]
+    FOREIGN KEY ([PartnerId])
+    REFERENCES [dbo].[PartnersSet]
+        ([PartnerId])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+ 
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_PartnersServices_PartnersSet'
+CREATE INDEX [IX_FK_PartnersServices_PartnersSet]
+ON [dbo].[PartnersServices]
+    ([PartnerId]);
+ 
+
+-- Creating foreign key on [ServiceId] in table 'PartnersServices'
+ALTER TABLE [dbo].[PartnersServices]
+ADD CONSTRAINT [FK_PartnersServices_ServicesSet]
+    FOREIGN KEY ([ServiceId])
+    REFERENCES [dbo].[ServicesSet]
+        ([ServiceId])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+ 
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_PartnersServices_ServicesSet'
+CREATE INDEX [IX_FK_PartnersServices_ServicesSet]
+ON [dbo].[PartnersServices]
+    ([ServiceId]);
+ 
+
+-- Creating foreign key on [PartnersServiceId] in table 'ToursSet'
+ALTER TABLE [dbo].[ToursSet]
+ADD CONSTRAINT [FK_ToursSet_PartnersServices]
+    FOREIGN KEY ([PartnersServiceId])
+    REFERENCES [dbo].[PartnersServices]
+        ([PartnersServicesID])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+ 
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_ToursSet_PartnersServices'
+CREATE INDEX [IX_FK_ToursSet_PartnersServices]
+ON [dbo].[ToursSet]
+    ([PartnersServiceId]);
+ 
+
+-- Creating foreign key on [PartnerServiceId] in table 'TrainTicketsSet'
+ALTER TABLE [dbo].[TrainTicketsSet]
+ADD CONSTRAINT [FK_TrainTicketsSet_PartnersServices]
+    FOREIGN KEY ([PartnerServiceId])
+    REFERENCES [dbo].[PartnersServices]
+        ([PartnersServicesID])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+ 
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_TrainTicketsSet_PartnersServices'
+CREATE INDEX [IX_FK_TrainTicketsSet_PartnersServices]
+ON [dbo].[TrainTicketsSet]
+    ([PartnerServiceId]);
+ 
+
+-- Creating foreign key on [PartnerServiceId] in table 'TransferSet'
+ALTER TABLE [dbo].[TransferSet]
+ADD CONSTRAINT [FK_TransferSet_PartnersServices]
+    FOREIGN KEY ([PartnerServiceId])
+    REFERENCES [dbo].[PartnersServices]
+        ([PartnersServicesID])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+ 
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_TransferSet_PartnersServices'
+CREATE INDEX [IX_FK_TransferSet_PartnersServices]
+ON [dbo].[TransferSet]
+    ([PartnerServiceId]);
+ 
+
+-- Creating foreign key on [PermissionsTypeID] in table 'Permisions'
+ALTER TABLE [dbo].[Permisions]
+ADD CONSTRAINT [FK_Permisions_PermissionsTypes]
+    FOREIGN KEY ([PermissionsTypeID])
+    REFERENCES [dbo].[PermissionsTypes]
+        ([PermissionsTypesID])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+ 
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_Permisions_PermissionsTypes'
+CREATE INDEX [IX_FK_Permisions_PermissionsTypes]
+ON [dbo].[Permisions]
+    ([PermissionsTypeID]);
+ 
+
+-- Creating foreign key on [UserID] in table 'Permisions'
+ALTER TABLE [dbo].[Permisions]
+ADD CONSTRAINT [FK_Permisions_Users]
+    FOREIGN KEY ([UserID])
+    REFERENCES [dbo].[Users]
+        ([UserID])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+ 
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_Permisions_Users'
+CREATE INDEX [IX_FK_Permisions_Users]
+ON [dbo].[Permisions]
+    ([UserID]);
+ 
+
+-- Creating foreign key on [SeviceTypeID] in table 'ServicesSet'
+ALTER TABLE [dbo].[ServicesSet]
+ADD CONSTRAINT [FK_ServicesSet_ServiceTypes1]
+    FOREIGN KEY ([SeviceTypeID])
+    REFERENCES [dbo].[ServiceTypes]
+        ([ServiceTypeID])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+ 
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_ServicesSet_ServiceTypes1'
+CREATE INDEX [IX_FK_ServicesSet_ServiceTypes1]
+ON [dbo].[ServicesSet]
+    ([SeviceTypeID]);
+ 
+
+-- Creating foreign key on [UserId] in table 'ServicesSet'
+ALTER TABLE [dbo].[ServicesSet]
+ADD CONSTRAINT [FK_ServicesSet_Users]
+    FOREIGN KEY ([UserId])
+    REFERENCES [dbo].[Users]
+        ([UserID])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+ 
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_ServicesSet_Users'
+CREATE INDEX [IX_FK_ServicesSet_Users]
+ON [dbo].[ServicesSet]
+    ([UserId]);
+ 
+
+-- Creating foreign key on [UsertypeID] in table 'UserButtonsSet'
+ALTER TABLE [dbo].[UserButtonsSet]
+ADD CONSTRAINT [FK_UserButtonsSet_UserType]
+    FOREIGN KEY ([UsertypeID])
+    REFERENCES [dbo].[UserType]
+        ([UserTypeID])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+ 
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_UserButtonsSet_UserType'
+CREATE INDEX [IX_FK_UserButtonsSet_UserType]
+ON [dbo].[UserButtonsSet]
+    ([UsertypeID]);
+ 
+
+-- Creating foreign key on [UserID] in table 'UserCompanies'
+ALTER TABLE [dbo].[UserCompanies]
+ADD CONSTRAINT [FK_UserCompanies_Users]
+    FOREIGN KEY ([UserID])
+    REFERENCES [dbo].[Users]
+        ([UserID])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+ 
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_UserCompanies_Users'
+CREATE INDEX [IX_FK_UserCompanies_Users]
+ON [dbo].[UserCompanies]
+    ([UserID]);
+ 
+
+-- Creating foreign key on [UserTypeID] in table 'Users'
+ALTER TABLE [dbo].[Users]
+ADD CONSTRAINT [FK_Users_UserType]
+    FOREIGN KEY ([UserTypeID])
+    REFERENCES [dbo].[UserType]
+        ([UserTypeID])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+ 
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_Users_UserType'
+CREATE INDEX [IX_FK_Users_UserType]
+ON [dbo].[Users]
+    ([UserTypeID]);
+ 
+
+-- Creating foreign key on [Clientid] in table 'ClientsServices'
+ALTER TABLE [dbo].[ClientsServices]
+ADD CONSTRAINT [FK_ClientsServises_ClientsSet]
+    FOREIGN KEY ([Clientid])
+    REFERENCES [dbo].[ClientsSet]
+        ([ClientId])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+ 
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_ClientsServises_ClientsSet'
+CREATE INDEX [IX_FK_ClientsServises_ClientsSet]
+ON [dbo].[ClientsServices]
+    ([Clientid]);
+ 
+
+-- Creating foreign key on [CompanyId] in table 'CashOperationsSet'
+ALTER TABLE [dbo].[CashOperationsSet]
+ADD CONSTRAINT [FK_CashOperations_CompaniesSet]
+    FOREIGN KEY ([CompanyId])
+    REFERENCES [dbo].[CompaniesSet]
+        ([CompanyId])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+ 
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_CashOperations_CompaniesSet'
+CREATE INDEX [IX_FK_CashOperations_CompaniesSet]
+ON [dbo].[CashOperationsSet]
+    ([CompanyId]);
+ 
+
+-- Creating foreign key on [CashOPTypeId] in table 'CashOperationsSet'
+ALTER TABLE [dbo].[CashOperationsSet]
+ADD CONSTRAINT [FK_CashOperationsSet_CashOperationsTypesSet]
+    FOREIGN KEY ([CashOPTypeId])
+    REFERENCES [dbo].[CashOperationsTypesSet]
+        ([CashOpTypesId])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+ 
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_CashOperationsSet_CashOperationsTypesSet'
+CREATE INDEX [IX_FK_CashOperationsSet_CashOperationsTypesSet]
+ON [dbo].[CashOperationsSet]
+    ([CashOPTypeId]);
+ 
+
+-- Creating foreign key on [UserId] in table 'CashOperationsSet'
+ALTER TABLE [dbo].[CashOperationsSet]
+ADD CONSTRAINT [FK_CashOperationsSet_Users]
+    FOREIGN KEY ([UserId])
+    REFERENCES [dbo].[Users]
+        ([UserID])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+ 
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_CashOperationsSet_Users'
+CREATE INDEX [IX_FK_CashOperationsSet_Users]
+ON [dbo].[CashOperationsSet]
+    ([UserId]);
+ 
+
+-- Creating foreign key on [CashOPId] in table 'CompanyCashOP'
+ALTER TABLE [dbo].[CompanyCashOP]
+ADD CONSTRAINT [FK_CompanyCashOP_CompanyCashOP]
+    FOREIGN KEY ([CashOPId])
+    REFERENCES [dbo].[CompanyCashOP]
+        ([CashOPId])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+ 
+
+-- Creating foreign key on [CompanyId] in table 'BankAccountsSet'
+ALTER TABLE [dbo].[BankAccountsSet]
+ADD CONSTRAINT [FK_BankAccountsSet_CompaniesSet]
+    FOREIGN KEY ([CompanyId])
+    REFERENCES [dbo].[CompaniesSet]
+        ([CompanyId])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+ 
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_BankAccountsSet_CompaniesSet'
+CREATE INDEX [IX_FK_BankAccountsSet_CompaniesSet]
+ON [dbo].[BankAccountsSet]
+    ([CompanyId]);
+ 
+
+-- Creating foreign key on [AccountId] in table 'CashOperationsSet'
+ALTER TABLE [dbo].[CashOperationsSet]
+ADD CONSTRAINT [FK_CashOperationsSet_BankAccountsSet]
+    FOREIGN KEY ([AccountId])
+    REFERENCES [dbo].[BankAccountsSet]
+        ([AcccountId])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+ 
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_CashOperationsSet_BankAccountsSet'
+CREATE INDEX [IX_FK_CashOperationsSet_BankAccountsSet]
+ON [dbo].[CashOperationsSet]
+    ([AccountId]);
+ 
+
+-- --------------------------------------------------
+-- Script has ended
+-- --------------------------------------------------

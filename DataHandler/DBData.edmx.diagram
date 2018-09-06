@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2d8691d99c8e4a9f9a80633d44d75172" Name="Diagram1" ZoomLevel="82">
+        <EntityTypeShape EntityType="ContabilidadModel.AirTicketsSet" Width="1.5" PointX="24.5" PointY="37" />
+        <EntityTypeShape EntityType="ContabilidadModel.ClientsServices" Width="1.5" PointX="25.25" PointY="27.25" />
+        <EntityTypeShape EntityType="ContabilidadModel.CoinExchangesSet" Width="1.5" PointX="42.5" PointY="2.875" />
+        <EntityTypeShape EntityType="ContabilidadModel.CompaniesSet" Width="1.5" PointX="14.75" PointY="26.875" />
+        <EntityTypeShape EntityType="ContabilidadModel.CountriesSet" Width="1.5" PointX="17.75" PointY="42.375" />
+        <EntityTypeShape EntityType="ContabilidadModel.EalthServicesSet" Width="1.5" PointX="17" PointY="33.25" />
+        <EntityTypeShape EntityType="ContabilidadModel.ExpensesSet" Width="1.5" PointX="27.5" PointY="27" />
+        <EntityTypeShape EntityType="ContabilidadModel.HotelsSet" Width="1.5" PointX="27.5" PointY="20.75" />
+        <EntityTypeShape EntityType="ContabilidadModel.IncomesSet" Width="1.5" PointX="34.25" PointY="2.75" />
+        <EntityTypeShape EntityType="ContabilidadModel.IncomeTableSet" Width="1.5" PointX="17" PointY="37.375" />
+        <EntityTypeShape EntityType="ContabilidadModel.InventariosSet" Width="1.5" PointX="44.5" PointY="5.875" />
+        <EntityTypeShape EntityType="ContabilidadModel.PartnersServices" Width="1.5" PointX="22.25" PointY="26.75" />
+        <EntityTypeShape EntityType="ContabilidadModel.PartnersSet" Width="1.5" PointX="20.875" PointY="8" />
+        <EntityTypeShape EntityType="ContabilidadModel.Permisions" Width="1.5" PointX="23" PointY="23.875" />
+        <EntityTypeShape EntityType="ContabilidadModel.PermissionsTypes" Width="1.5" PointX="20.75" PointY="31.875" />
+        <EntityTypeShape EntityType="ContabilidadModel.ProductosSet" Width="1.5" PointX="46.5" PointY="2.875" />
+        <EntityTypeShape EntityType="ContabilidadModel.PropertiesSet" Width="1.5" PointX="46.5" PointY="7.875" />
+        <EntityTypeShape EntityType="ContabilidadModel.ServicesSet" Width="1.5" PointX="20" PointY="25.75" />
+        <EntityTypeShape EntityType="ContabilidadModel.ServiceTypes" Width="1.5" PointX="17.75" PointY="23.75" />
+        <EntityTypeShape EntityType="ContabilidadModel.sysdiagrams" Width="1.5" PointX="48.5" PointY="2.875" />
+        <EntityTypeShape EntityType="ContabilidadModel.ToursSet" Width="1.5" PointX="24.5" PointY="16.625" />
+        <EntityTypeShape EntityType="ContabilidadModel.TrainTicketsSet" Width="1.5" PointX="24.5" PointY="42.75" />
+        <EntityTypeShape EntityType="ContabilidadModel.TransferSet" Width="1.5" PointX="24.5" PointY="30.125" />
+        <EntityTypeShape EntityType="ContabilidadModel.UserButtonsSet" Width="1.5" PointX="17.875" PointY="4.375" />
+        <EntityTypeShape EntityType="ContabilidadModel.UserCompanies" Width="1.5" PointX="17" PointY="27.25" />
+        <EntityTypeShape EntityType="ContabilidadModel.Users" Width="1.5" PointX="17.875" PointY="8.375" />
+        <EntityTypeShape EntityType="ContabilidadModel.UserType" Width="1.5" PointX="15.25" PointY="7.875" />
+        <AssociationConnector Association="ContabilidadModel.FK_AirTicketsSet_PartnersServices" />
+        <AssociationConnector Association="ContabilidadModel.FK_ClientsServises_ServicesSet" />
+        <AssociationConnector Association="ContabilidadModel.FK_CompaniesEalthServices" />
+        <AssociationConnector Association="ContabilidadModel.FK_CompaniesIncomeTable" />
+        <AssociationConnector Association="ContabilidadModel.FK_ServicesSet_CompaniesSet" />
+        <AssociationConnector Association="ContabilidadModel.FK_UserCompanies_CompaniesSet" />
+        <AssociationConnector Association="ContabilidadModel.FK_HotelsSet_CountriesSet" />
+        <AssociationConnector Association="ContabilidadModel.FK_ServicesSet_CountriesSet" />
+        <AssociationConnector Association="ContabilidadModel.FK_ExpensesSet_PartnersServices" />
+        <AssociationConnector Association="ContabilidadModel.FK_ExpensesSet_ServicesSet" />
+        <AssociationConnector Association="ContabilidadModel.FK_HotelsSet_PartnersServices" />
+        <AssociationConnector Association="ContabilidadModel.FK_IncomesSet_ServicesSet" />
+        <AssociationConnector Association="ContabilidadModel.FK_PartnersServices_PartnersSet" />
+        <AssociationConnector Association="ContabilidadModel.FK_PartnersServices_ServicesSet" />
+        <AssociationConnector Association="ContabilidadModel.FK_ToursSet_PartnersServices" />
+        <AssociationConnector Association="ContabilidadModel.FK_TrainTicketsSet_PartnersServices" />
+        <AssociationConnector Association="ContabilidadModel.FK_TransferSet_PartnersServices" />
+        <AssociationConnector Association="ContabilidadModel.FK_Permisions_PermissionsTypes" />
+        <AssociationConnector Association="ContabilidadModel.FK_Permisions_Users" />
+        <AssociationConnector Association="ContabilidadModel.FK_ServicesSet_ServiceTypes1" />
+        <AssociationConnector Association="ContabilidadModel.FK_ServicesSet_Users" />
+        <AssociationConnector Association="ContabilidadModel.FK_UserButtonsSet_UserType" />
+        <AssociationConnector Association="ContabilidadModel.FK_UserCompanies_Users" />
+        <AssociationConnector Association="ContabilidadModel.FK_Users_UserType" />
+        <EntityTypeShape EntityType="ContabilidadModel.ClientsSet" Width="1.5" PointX="0.75" PointY="1.125" />
+        <AssociationConnector Association="ContabilidadModel.FK_ClientsServises_ClientsSet" />
+        <EntityTypeShape EntityType="ContabilidadModel.CashOperationsTypesSet" Width="1.5" PointX="19" PointY="18.5" />
+        <EntityTypeShape EntityType="ContabilidadModel.CashOperationsSet" Width="1.5" PointX="21.25" PointY="17.375" />
+        <EntityTypeShape EntityType="ContabilidadModel.CompanyCashOP" Width="1.5" PointX="3.375" PointY="0.75" />
+        <AssociationConnector Association="ContabilidadModel.FK_CashOperations_CompaniesSet" />
+        <AssociationConnector Association="ContabilidadModel.FK_CashOperationsSet_CashOperationsTypesSet" />
+        <AssociationConnector Association="ContabilidadModel.FK_CashOperationsSet_Users" />
+        <AssociationConnector Association="ContabilidadModel.FK_CompanyCashOP_CompanyCashOP" />
+        <EntityTypeShape EntityType="ContabilidadModel.BankAccountsSet" Width="1.5" PointX="17" PointY="15.375" />
+        <AssociationConnector Association="ContabilidadModel.FK_BankAccountsSet_CompaniesSet" />
+        <AssociationConnector Association="ContabilidadModel.FK_CashOperationsSet_BankAccountsSet" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
